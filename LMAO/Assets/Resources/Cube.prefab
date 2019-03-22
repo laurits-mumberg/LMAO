@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114628434932578962}
   - component: {fileID: 114714982199357440}
   - component: {fileID: 8229537419952073472}
+  - component: {fileID: 3438480830301493317}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114628434932578962}
   viewIdField: 0
-  InstantiationId: 1
+  InstantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &114066548944796420
 MonoBehaviour:
@@ -172,6 +173,8 @@ MonoBehaviour:
   power: 5
   maxSpeed: 20
   breakSpeed: 0.98
+  vectorToShoot: {x: 0, y: 0}
+  isShooting: 0
 --- !u!58 &8229537419952073472
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -188,3 +191,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3438480830301493317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000468193213254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d574222264d207e449a39d2929021c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trajectoryDotPrefab: {fileID: 6960784882602018210, guid: 6faa7bf6f0ca98545a6f20b501056ea5,
+    type: 3}
+  AmountOfDots: 5
+  showingDots: 0

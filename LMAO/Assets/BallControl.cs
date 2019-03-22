@@ -11,10 +11,12 @@ public class BallControl : MonoBehaviourPun {
     public float maxSpeed;
     public float breakSpeed;
 
+    public Vector2 vectorToShoot;
+
     private Rigidbody2D rb2d;
 
     private bool isMoving = false;
-    private bool isShooting = false;
+    public bool isShooting = false;
 
    
     void Start()
@@ -32,20 +34,16 @@ public class BallControl : MonoBehaviourPun {
 
         if (photonView.IsMine)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0) && !isMoving)
             {
                 isShooting = true;
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                vectorToShoot = (gameObject.transform.position - mousePos) * power;
+                vectorToShoot = Vector2.ClampMagnitude(vectorToShoot, maxSpeed);
             }
-
-
 
             if (!isMoving && Input.GetMouseButtonUp(0) && isShooting)
             {
-
-
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 vectorToShoot = (gameObject.transform.position - mousePos) * power;
-                vectorToShoot = Vector2.ClampMagnitude(vectorToShoot, maxSpeed);
 
                 if (vectorToShoot.magnitude < 1)
                 {
@@ -57,6 +55,7 @@ public class BallControl : MonoBehaviourPun {
                 {
                     rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
                     isMoving = true;
+                    isShooting = false;
                 }
             }
         }
