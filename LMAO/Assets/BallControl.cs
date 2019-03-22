@@ -7,11 +7,14 @@ using UnityEngine;
 public class BallControl : MonoBehaviourPun {
 
 
-    public float speed;
+    public float power;
+    public float maxSpeed;
+    public float breakSpeed;
 
     private Rigidbody2D rb2d;
 
-    private bool isMoving;
+    private bool isMoving = false;
+    private bool isShooting = false;
 
    
     void Start()
@@ -29,23 +32,52 @@ public class BallControl : MonoBehaviourPun {
 
         if (photonView.IsMine)
         {
-            //Store the current horizontal input in the float moveHorizontal.
-            float moveHorizontal = Input.GetAxis("Horizontal");
+            if (Input.GetMouseButtonDown(0))
+            {
+                isShooting = true;
+            }
 
-            //Store the current vertical input in the float moveVertical.
-            float moveVertical = Input.GetAxis("Vertical");
 
-            //Use the two store floats to create a new Vector2 variable movement.
-            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
-            //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-            rb2d.AddForce(movement * speed * Time.deltaTime);
+            if (!isMoving && Input.GetMouseButtonUp(0) && isShooting)
+            {
+
+
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 vectorToShoot = (gameObject.transform.position - mousePos) * power;
+                vectorToShoot = Vector2.ClampMagnitude(vectorToShoot, maxSpeed);
+
+                if (vectorToShoot.magnitude < 1)
+                {
+                    //Cancel shit
+                    isShooting = false;
+
+                }
+                else
+                {
+                    rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
+                    isMoving = true;
+                }
+            }
+        }
+
+
+        //Checker om man må skyde igen
+        if (rb2d.velocity.magnitude < 0.1f)
+        {
+            rb2d.velocity = new Vector2(0, 0);
+            isMoving = false;
+        }
+        else
+        {
+            isMoving = true;
         }
     }
 
+
     void FixedUpdate()
     {
-
+        rb2d.velocity = rb2d.velocity * breakSpeed;
     }
 
 }

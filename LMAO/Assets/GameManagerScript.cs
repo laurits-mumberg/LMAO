@@ -58,6 +58,5 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
 	// Update is called once per frame
 	void Update () {
-        print(PhotonNetwork.CurrentRoom.PlayerCount);
 	}
 }
