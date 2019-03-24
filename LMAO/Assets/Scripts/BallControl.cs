@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BallControl : MonoBehaviourPun {
 
+    public bool canMove;
+    private GameObject gameManagerObj;
 
     public float power;
     public float maxSpeed;
@@ -21,11 +23,27 @@ public class BallControl : MonoBehaviourPun {
    
     void Start()
     {
-        //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb2d = GetComponent<Rigidbody2D>();
+        gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
+        canMove = false;
     }
 
     private void Update()
+    {
+        if (canMove)
+        {
+            BallShooting();
+        }
+    }
+
+
+    void FixedUpdate()
+    {
+        //Slower bare ned hele tiden
+        rb2d.velocity = rb2d.velocity * breakSpeed;
+    }
+
+    private void BallShooting()
     {
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
@@ -71,12 +89,6 @@ public class BallControl : MonoBehaviourPun {
         {
             isMoving = true;
         }
-    }
-
-
-    void FixedUpdate()
-    {
-        rb2d.velocity = rb2d.velocity * breakSpeed;
     }
 
 }
