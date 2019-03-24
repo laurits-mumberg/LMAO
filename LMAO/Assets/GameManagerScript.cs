@@ -8,9 +8,11 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 {
     public GameObject playerPrefab;
     public static GameObject LocalPlayerInstance;
+    public GameObject launcher;
 
     // Use this for initialization
     void Start () {
+        launcher = GameObject.Find("Launcher");
 
         PhotonNetwork.JoinRandomRoom();
 
@@ -56,7 +58,8 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(Random.Range(-4, 4), Random.Range(-4, 4), 0), Quaternion.identity, 0);
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update ()
+        {
 	}
 }

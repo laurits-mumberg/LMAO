@@ -50,6 +50,11 @@ namespace Photon.Pun
         [NonSerialized]
         private int ownerId; // TODO maybe changing this should trigger "Was Transfered"!?
 
+        public void RPC(string v, object allBuffered, Vector3 vector3)
+        {
+            throw new NotImplementedException();
+        }
+
         [FormerlySerializedAs("group")]
         public byte Group = 0;
 

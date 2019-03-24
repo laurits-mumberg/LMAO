@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,10 @@ using UnityEngine.SceneManagement;
 public class PhotonLobby : MonoBehaviourPunCallbacks {
 
     public static PhotonLobby lobby;
+    public BallLook.BallColor colorOfPlayerBall;
 
     public GameObject connectButton;
     public GameObject cancenButton;
-
-    private void Awake()
-    {
-        lobby = this;
-    }
 
     // Use this for initialization
     void Start() {
@@ -32,11 +29,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
     public void JoinRandomGame()
     {
         SceneManager.LoadScene("Game");
-
     }
-
-
-
 
     // Update is called once per frame
     void Update () {
