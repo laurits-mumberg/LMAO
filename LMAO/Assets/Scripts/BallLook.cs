@@ -7,7 +7,7 @@ using UnityEngine;
 public class BallLook : MonoBehaviourPunCallbacks
 {
 
-    public enum BallColor {Red, Green, Blue}
+    public enum BallColor {White, Red, Green, Blue}
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,9 @@ public class BallLook : MonoBehaviourPunCallbacks
                 break;
             case BallColor.Blue:
                 gameObject.GetComponent<Renderer>().material.color = Color.blue;
+                break;
+            case BallColor.White:
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
                 break;
             default:
                 gameObject.GetComponent<Renderer>().material.color = Color.white;

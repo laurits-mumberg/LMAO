@@ -28,6 +28,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
 
     public void JoinRandomGame()
     {
+        GetComponent<PlayerInfoScript>().SubmitPlayerInfo();
         SceneManager.LoadScene("Game");
     }
 
