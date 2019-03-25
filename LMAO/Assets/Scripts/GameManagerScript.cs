@@ -14,7 +14,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     public static GameObject LocalPlayerInstance;
     private GameObject[] AllBalls;
 
-    //Obstacle Variabler
+    //Obstacle variabler
     public GameObject[] Level1Obstacles;
     public List<GameObject> AllObstacles = new List<GameObject>();
     public int obstSpawnAtStartCount = 3;
@@ -28,15 +28,62 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     public double timerTime;
     public double timeLeft;
 
+    //Zone variabler
+    public GameObject zoneObj;
+    public bool zoneIsActive = false;
+    public float zoneGrowSpeed;
+    public float zoneSpdChangePerSec;
+    private float timeSinceSpdChange;
+
 
     // Use this for initialization
     void Start () {
         PhotonNetwork.JoinRandomRoom();
 
         Level1Obstacles = Resources.LoadAll("Obstacles/Level1", typeof(GameObject)).Cast<GameObject>().ToArray();
-        print(Level1Obstacles.Length);
     }
 
+    void Update()
+    {
+        Runtimer();
+        IncreaseZoneSpped();
+    }
+
+    private void IncreaseZoneSpped()
+    {
+        if (!zoneIsActive)
+        {
+            return;
+        }
+
+        timeSinceSpdChange += Time.deltaTime;
+
+        if (timeSinceSpdChange >= 1)
+        {
+            timeSinceSpdChange = 0.0f;
+
+            print("lol");
+            zoneGrowSpeed += zoneSpdChangePerSec;
+
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        MoveZone();
+    }
+
+    private void MoveZone()
+    {
+        if (!zoneIsActive)
+        {
+            return;
+        }
+
+        zoneObj.transform.localScale += new Vector3(0, 0.005f * zoneGrowSpeed, 0);
+        zoneObj.transform.position += new Vector3(0, 0.0025f * zoneGrowSpeed, 0);
+
+    }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
@@ -99,10 +146,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0 + ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.5f), 0, 0), Quaternion.identity, 0);
     }
 
-    void Update ()
-    {
-        Runtimer();
-	}
+
 
     public IEnumerator SpawnObstacle()
     {
