@@ -8,10 +8,15 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviourPunCallbacks
 {
+    //Player variabler
     public GameObject playerPrefab;
     public static GameObject LocalPlayerInstance;
-
     private GameObject[] AllBalls;
+
+    //Obstacle Variabler
+    public List<GameObject> AllObstacles = new List<GameObject>();
+    public int obstSpawnAtStartCount = 3;
+    private int obstCurrentCount = 0;
 
     //Timer variabler
     public GameObject timerTextObj;
@@ -72,6 +77,12 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
         SpawnPLayer();
 
+        for (int i = 1; i <= obstSpawnAtStartCount; i++)
+        {
+            StartCoroutine(SpawnObstacle());
+        }
+
+
     }
 
     public void LeaveRoom()
@@ -88,6 +99,40 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     {
         Runtimer();
 	}
+
+    public IEnumerator SpawnObstacle()
+    {
+
+        //Sikrer at baner ikke bliver lavet to gange.
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            obstCurrentCount++;
+            yield break;
+
+        }
+
+        while ((obstCurrentCount == AllObstacles.Count) == false)
+        {
+            print("obstCurrentCount er " + obstCurrentCount + " og AllObstacles.Count er " + AllObstacles.Count);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        Vector2 newPos;
+
+        if (AllObstacles.Count == 0)
+        {
+            newPos = new Vector2(0, 10);
+        }
+        else
+        {
+            newPos = new Vector2(AllObstacles[AllObstacles.Count - 1].transform.position.x, AllObstacles[AllObstacles.Count - 1].transform.position.y) + AllObstacles[AllObstacles.Count - 1].GetComponent<Obstacle>().vectorToEnd;
+        }
+
+        print("Spawner ny ting");
+        obstCurrentCount++;
+        PhotonNetwork.Instantiate("Level1Obs/TestObs", newPos, Quaternion.identity, 0);
+        
+    }
 
     private void Runtimer()
     {

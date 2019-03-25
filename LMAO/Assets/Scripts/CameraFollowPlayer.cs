@@ -38,10 +38,8 @@ public class CameraFollowPlayer : MonoBehaviourPunCallbacks
 
             foreach (GameObject ball in AllCurrentBalls)
             {
-                print("no");
                 if (ball.GetComponent<PhotonView>().IsMine)
                 {
-                    print("Nice");
                     target = ball.transform;
                 }
             }
