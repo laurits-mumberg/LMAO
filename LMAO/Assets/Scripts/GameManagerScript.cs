@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManagerScript : MonoBehaviourPunCallbacks
 {
@@ -14,6 +15,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     private GameObject[] AllBalls;
 
     //Obstacle Variabler
+    public GameObject[] Level1Obstacles;
     public List<GameObject> AllObstacles = new List<GameObject>();
     public int obstSpawnAtStartCount = 3;
     private int obstCurrentCount = 0;
@@ -31,6 +33,8 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     void Start () {
         PhotonNetwork.JoinRandomRoom();
 
+        Level1Obstacles = Resources.LoadAll("Obstacles/Level1", typeof(GameObject)).Cast<GameObject>().ToArray();
+        print(Level1Obstacles.Length);
     }
 
 
@@ -111,9 +115,10 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
         }
 
+        //Sikrer at baner ikke bliver spawnet oven i hinanden.
         while ((obstCurrentCount == AllObstacles.Count) == false)
         {
-            print("obstCurrentCount er " + obstCurrentCount + " og AllObstacles.Count er " + AllObstacles.Count);
+            
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -130,7 +135,9 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
         print("Spawner ny ting");
         obstCurrentCount++;
-        PhotonNetwork.Instantiate("Level1Obs/TestObs", newPos, Quaternion.identity, 0);
+
+        string obstName = Level1Obstacles[Random.Range(0, Level1Obstacles.Length)].name;
+        PhotonNetwork.Instantiate("Obstacles/Level1/" + obstName, newPos, Quaternion.identity, 0);
         
     }
 
