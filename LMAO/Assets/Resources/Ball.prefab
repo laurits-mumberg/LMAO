@@ -175,6 +175,7 @@ MonoBehaviour:
   power: 5
   maxSpeed: 20
   breakSpeed: 0.98
+  minSpeed: 0.5
   vectorToShoot: {x: 0, y: 0}
   isShooting: 0
 --- !u!58 &8229537419952073472

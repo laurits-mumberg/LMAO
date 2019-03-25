@@ -12,6 +12,7 @@ public class BallControl : MonoBehaviourPun {
     public float power;
     public float maxSpeed;
     public float breakSpeed;
+    public float minSpeed = 0.5f;
 
     public Vector2 vectorToShoot;
 
@@ -80,7 +81,7 @@ public class BallControl : MonoBehaviourPun {
 
 
         //Checker om man må skyde igen
-        if (rb2d.velocity.magnitude < 0.1f)
+        if (rb2d.velocity.magnitude < minSpeed)
         {
             rb2d.velocity = new Vector2(0, 0);
             isMoving = false;
