@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 944381914}
   m_Layer: 0
   m_Name: Zonen
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

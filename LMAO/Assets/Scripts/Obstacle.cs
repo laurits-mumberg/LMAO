@@ -23,7 +23,6 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.tag ==  "Player" && hasBeenReached == false)
         {
-            print("Obstacle nået");
             hasBeenReached = true;
             StartCoroutine(gameManager.GetComponent<GameManagerScript>().SpawnObstacle());
             
