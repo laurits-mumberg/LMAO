@@ -12,7 +12,8 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     //Player variabler
     public GameObject playerPrefab;
     public static GameObject LocalPlayerInstance;
-    private GameObject[] AllBalls;
+    private GameObject[] allBalls;
+    public int playersLeft;
 
     //Obstacle variabler
     public GameObject[] Level1Obstacles;
@@ -41,10 +42,13 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom();
 
         Level1Obstacles = Resources.LoadAll("Obstacles/Level1", typeof(GameObject)).Cast<GameObject>().ToArray();
+
+        
     }
 
     void Update()
     {
+        CheckForWin();
         Runtimer();
         IncreaseZoneSpped();
     }
@@ -61,8 +65,6 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         if (timeSinceSpdChange >= 1)
         {
             timeSinceSpdChange = 0.0f;
-
-            print("lol");
             zoneGrowSpeed += zoneSpdChangePerSec;
 
         }
@@ -71,6 +73,22 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     private void FixedUpdate()
     {
         MoveZone();
+    }
+
+    private void CheckForWin()
+    {
+        if (!zoneIsActive)
+        {
+            return;
+        }
+
+        //Skift 0 til 1 her, når at spillet rent faktisk skal fungere
+        if(playersLeft == 0)
+        {
+            print("Winner");
+            zoneIsActive = false;
+            //Gør et eller andet winner, fis
+        }
     }
 
     private void MoveZone()
@@ -177,11 +195,9 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
             newPos = new Vector2(AllObstacles[AllObstacles.Count - 1].transform.position.x, AllObstacles[AllObstacles.Count - 1].transform.position.y) + AllObstacles[AllObstacles.Count - 1].GetComponent<Obstacle>().vectorToEnd;
         }
 
-        print("Spawner ny ting");
         obstCurrentCount++;
-
         string obstName = Level1Obstacles[Random.Range(0, Level1Obstacles.Length)].name;
-        PhotonNetwork.Instantiate("Obstacles/Level1/" + obstName, newPos, Quaternion.identity, 0);
+        PhotonNetwork.InstantiateSceneObject("Obstacles/Level1/" + obstName, newPos, Quaternion.identity, 0);
         
     }
 
@@ -193,9 +209,10 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
             if (timeLeft <= 0)
             {
-                //Start 
-                AllBalls = GameObject.FindGameObjectsWithTag("Player");
-                foreach (GameObject ball in AllBalls)
+                //Start
+                allBalls = GameObject.FindGameObjectsWithTag("Player");
+                playersLeft = PhotonNetwork.CurrentRoom.PlayerCount;
+                foreach (GameObject ball in allBalls)
                 {
                     ball.GetComponent<BallControl>().canMove = true;
                     timerTextObj.SetActive(false);
@@ -210,10 +227,12 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
                 //Starter zonen og stopper timeren
                 timerRunning = false;
                 zoneIsActive = true;
+
             }
             timerTextObj.GetComponent<Text>().text = "Starting in: " + (int)timeLeft + " seconds";
 
         }
 
     }
+
 }

@@ -33,5 +33,7 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - SetPlayerLook
+  - Die
+  - PlayerDie
   DisableAutoOpenWizard: 1
   ShowSettings: 0

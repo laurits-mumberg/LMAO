@@ -17,9 +17,13 @@ public class BallControl : MonoBehaviourPun {
     public Vector2 vectorToShoot;
 
     private Rigidbody2D rb2d;
-
     private bool isMoving = false;
     public bool isShooting = false;
+
+    //stats
+    public float health = 100;
+    public float dmgperSecInZone;
+    private float timeSinceDmgTaken = 0;
 
    
     void Start()
@@ -34,6 +38,11 @@ public class BallControl : MonoBehaviourPun {
         if (canMove)
         {
             BallShooting();
+        }
+
+        if (health <= 0)
+        {
+            photonView.RPC("PlayerDie", RpcTarget.All);
         }
     }
 
@@ -90,6 +99,52 @@ public class BallControl : MonoBehaviourPun {
         {
             isMoving = true;
         }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        if (collision.tag == "zone")
+        {
+            timeSinceDmgTaken += Time.deltaTime;
+
+            if (timeSinceDmgTaken >= 1)
+            {
+                //Tag damage
+                health -= dmgperSecInZone;
+                timeSinceDmgTaken = 0;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            if (collision.tag == "zone")
+            {
+                timeSinceDmgTaken = 0;
+            }
+        }
+    }
+    [PunRPC]
+    void PlayerDie()
+    {
+        GameObject.Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        gameManagerObj.GetComponent<GameManagerScript>().playersLeft--;
     }
 
 }
