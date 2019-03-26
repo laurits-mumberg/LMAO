@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4923757560462355993}
   - component: {fileID: 1031747344236658629}
   m_Layer: 0
-  m_Name: TestObs
+  m_Name: TestObsStraight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
