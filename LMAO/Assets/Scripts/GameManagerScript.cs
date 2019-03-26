@@ -193,8 +193,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
             if (timeLeft <= 0)
             {
-                //Start spillet
-                timerRunning = false;
+                //Start 
                 AllBalls = GameObject.FindGameObjectsWithTag("Player");
                 foreach (GameObject ball in AllBalls)
                 {
@@ -204,6 +203,13 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
                     //Gør så at folk ikke kan joine. Alternativt kan der tilføjes et if-statement ved 5 sekunder tilbage:
                     //PhotonNetwork.room.open = false;
                 }
+            }
+
+            if (timeLeft <= -5)
+            {
+                //Starter zonen og stopper timeren
+                timerRunning = false;
+                zoneIsActive = true;
             }
             timerTextObj.GetComponent<Text>().text = "Starting in: " + (int)timeLeft + " seconds";
 
