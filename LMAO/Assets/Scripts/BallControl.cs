@@ -100,6 +100,7 @@ public class BallControl : MonoBehaviourPun {
             isMoving = true;
         }
 
+        print(rb2d.velocity.magnitude);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
