@@ -70,6 +70,7 @@ public class BallControl : MonoBehaviourPun {
                 vectorToShoot = Vector2.ClampMagnitude(vectorToShoot, maxSpeed);
             }
 
+
             if (!isMoving && Input.GetMouseButtonUp(0) && isShooting)
             {
 
@@ -82,7 +83,7 @@ public class BallControl : MonoBehaviourPun {
                 else
                 {
                     rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
-                    isMoving = true;
+                    //isMoving = true;
                     isShooting = false;
                 }
             }
@@ -98,9 +99,9 @@ public class BallControl : MonoBehaviourPun {
         else
         {
             isMoving = true;
+            isShooting = false;
         }
 
-        print(rb2d.velocity.magnitude);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
