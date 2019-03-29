@@ -66,4 +66,9 @@ public class ShotPrediction : MonoBehaviour
             dot.SetActive(false);
         }
     }
+
+    private void OnDestroy()
+    {
+        HideDots();
+    }
 }
