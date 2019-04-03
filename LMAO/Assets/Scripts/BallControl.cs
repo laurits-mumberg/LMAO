@@ -3,12 +3,16 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallControl : MonoBehaviourPun {
 
     public bool canMove;
+
+    //Objekter i scenen
     private GameObject gameManagerObj;
     private GameObject canvas;
+    private GameObject healthTextObj;
 
     public float power;
     public float maxSpeed;
@@ -29,9 +33,12 @@ public class BallControl : MonoBehaviourPun {
    
     void Start()
     {
+
+
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
+        healthTextObj = canvas.transform.Find("HealthText").gameObject;
         canMove = false;
  
     }
@@ -47,6 +54,13 @@ public class BallControl : MonoBehaviourPun {
         {
             photonView.RPC("PlayerDie", RpcTarget.All);
         }
+
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        healthTextObj.GetComponent<Text>().text = "Health: " + health;
     }
 
 

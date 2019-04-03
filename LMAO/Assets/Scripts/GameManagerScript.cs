@@ -229,8 +229,12 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
                     ball.GetComponent<BallControl>().canMove = true;
                     timerTextObj.SetActive(false);
 
-                    //Gør så at folk ikke kan joine. Alternativt kan der tilføjes et if-statement ved 5 sekunder tilbage:
-                    //PhotonNetwork.room.open = false;
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        //Gør så at folk ikke kan joine. Alternativt kan der tilføjes et if-statement ved 5 sekunder tilbage:
+                        PhotonNetwork.CurrentRoom.IsOpen = false;
+                    }
+
                 }
             }
 
