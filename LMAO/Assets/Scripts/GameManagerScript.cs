@@ -88,7 +88,6 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         //Skift 0 til 1 her, når at spillet rent faktisk skal fungere
         if(playersLeft == 1)
         {
-            print("Winner");
             zoneIsActive = false;
 
             //Gør et eller andet winner fis
@@ -96,6 +95,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
             if (winner.GetPhotonView().IsMine)
             {
+                print("U R Winner");
                 winnerTextObj.SetActive(true);
                 leaveButton.SetActive(true);
             }

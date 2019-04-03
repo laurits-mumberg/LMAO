@@ -163,6 +163,10 @@ public class BallControl : MonoBehaviourPun {
 
     private void OnDestroy()
     {
+        if (!gameManagerObj.GetComponent<GameManagerScript>().zoneIsActive)
+        {
+            return;
+        }
         gameManagerObj.GetComponent<GameManagerScript>().playersLeft--;
 
         if (photonView.IsMine)
