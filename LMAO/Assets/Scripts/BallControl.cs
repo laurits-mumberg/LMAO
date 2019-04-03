@@ -8,6 +8,7 @@ public class BallControl : MonoBehaviourPun {
 
     public bool canMove;
     private GameObject gameManagerObj;
+    private GameObject canvas;
 
     public float power;
     public float maxSpeed;
@@ -30,7 +31,9 @@ public class BallControl : MonoBehaviourPun {
     {
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
         canMove = false;
+ 
     }
 
     private void Update()
@@ -147,6 +150,13 @@ public class BallControl : MonoBehaviourPun {
     private void OnDestroy()
     {
         gameManagerObj.GetComponent<GameManagerScript>().playersLeft--;
+
+        if (photonView.IsMine)
+        {
+            GameObject leaveButton = canvas.transform.Find("ButtonLeave").gameObject;
+            leaveButton.SetActive(true);
+        }
+
     }
 
 }

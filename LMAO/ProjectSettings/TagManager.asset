@@ -7,6 +7,7 @@ TagManager:
   - GameManager
   - Bullet
   - zone
+  - Canvas
   layers:
   - Default
   - TransparentFX

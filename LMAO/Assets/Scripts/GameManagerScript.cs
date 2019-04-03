@@ -36,6 +36,9 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     public float zoneSpdChangePerSec;
     private float timeSinceSpdChange;
 
+    //UI Variabler
+    public GameObject winnerTextObj;
+    public GameObject leaveButton;
 
     // Use this for initialization
     void Start () {
@@ -87,7 +90,11 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         {
             print("Winner");
             zoneIsActive = false;
-            //Gør et eller andet winner, fis
+
+            //Gør et eller andet winner fis
+            winnerTextObj.SetActive(true);
+            leaveButton.SetActive(true);
+
         }
     }
 
@@ -232,7 +239,11 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
             timerTextObj.GetComponent<Text>().text = "Starting in: " + (int)timeLeft + " seconds";
 
         }
+    }
 
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("Launcher");
     }
 
 }
