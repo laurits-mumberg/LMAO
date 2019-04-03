@@ -86,14 +86,19 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         }
 
         //Skift 0 til 1 her, når at spillet rent faktisk skal fungere
-        if(playersLeft == 0)
+        if(playersLeft == 1)
         {
             print("Winner");
             zoneIsActive = false;
 
             //Gør et eller andet winner fis
-            winnerTextObj.SetActive(true);
-            leaveButton.SetActive(true);
+            GameObject winner = GameObject.FindGameObjectWithTag("Player");
+
+            if (winner.GetPhotonView().IsMine)
+            {
+                winnerTextObj.SetActive(true);
+                leaveButton.SetActive(true);
+            }
 
         }
     }

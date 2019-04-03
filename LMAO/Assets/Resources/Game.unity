@@ -1278,8 +1278,8 @@ MonoBehaviour:
   zoneIsActive: 0
   zoneGrowSpeed: 4
   zoneSpdChangePerSec: 0.016666666
-  winnerTextObj: {fileID: 0}
-  leaveButton: {fileID: 0}
+  winnerTextObj: {fileID: 1050544235}
+  leaveButton: {fileID: 1419336073}
 --- !u!4 &1968700251
 Transform:
   m_ObjectHideFlags: 0
