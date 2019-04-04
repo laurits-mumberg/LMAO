@@ -40,6 +40,9 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     public GameObject winnerTextObj;
     public GameObject leaveButton;
 
+    //Debug
+    public int playersLeftForWin = 1;
+
     // Use this for initialization
     void Start () {
         PhotonNetwork.JoinRandomRoom();
@@ -86,7 +89,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         }
 
         //Skift 0 til 1 her, når at spillet rent faktisk skal fungere
-        if(playersLeft == 1)
+        if(playersLeft == playersLeftForWin)
         {
             zoneIsActive = false;
 
