@@ -29,6 +29,7 @@ public class ShotPrediction : MonoBehaviour
             for (int i = 0; i < AllDots.Count; i++)
             {
                 AllDots[i].transform.position = CalculatedPosition(i * 0.2f);
+                AllDots[i].transform.position = new Vector3(AllDots[i].transform.position.x, AllDots[i].transform.position.y, -3);
             }
         }
 

@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - zone
   - Canvas
+  - Water
   layers:
   - Default
   - TransparentFX
