@@ -571,7 +571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &944381912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,7 @@ MonoBehaviour:
   obstSpawnAtStartCount: 3
   timerTextObj: {fileID: 930356848}
   timerRunning: 0
-  timerTime: 30
+  timerTime: 5
   timeLeft: 0
   zoneObj: {fileID: 944381911}
   zoneIsActive: 0

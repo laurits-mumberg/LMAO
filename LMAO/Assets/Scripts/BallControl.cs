@@ -177,4 +177,9 @@ public class BallControl : MonoBehaviourPun {
 
     }
 
+    public void RemoveAnim()
+    {
+        GetComponent<Animator>().enabled = false;
+    }
+
 }

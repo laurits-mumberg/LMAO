@@ -244,6 +244,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
             if (timeLeft <= -5)
             {
                 //Starter zonen og stopper timeren
+                zoneObj.SetActive(true);
                 timerRunning = false;
                 zoneIsActive = true;
 
