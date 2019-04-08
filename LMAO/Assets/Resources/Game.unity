@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998900e242869f94b95292c088d09824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1000468193213254, guid: c799f7c52d2a182408e55d2cac522fa5,
+  playerPrefab: {fileID: 609779658190213045, guid: 508a5017f972c7044b978c1af5b85ecb,
     type: 3}
   playersLeft: 0
   Level1Obstacles: []
@@ -1448,7 +1448,7 @@ MonoBehaviour:
   timeLeft: 0
   zoneObj: {fileID: 944381911}
   zoneIsActive: 0
-  zoneGrowSpeed: 2
+  zoneGrowSpeed: 3
   zoneSpdChangePerSec: 0.016666666
   winnerTextObj: {fileID: 1050544235}
   leaveButton: {fileID: 1419336073}

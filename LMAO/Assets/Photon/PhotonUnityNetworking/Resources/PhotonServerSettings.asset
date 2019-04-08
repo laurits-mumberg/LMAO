@@ -35,5 +35,6 @@ MonoBehaviour:
   - SetPlayerLook
   - Die
   - PlayerDie
+  - SpawnAnim
   DisableAutoOpenWizard: 1
   ShowSettings: 0

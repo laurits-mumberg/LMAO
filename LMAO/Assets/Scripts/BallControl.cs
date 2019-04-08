@@ -33,14 +33,17 @@ public class BallControl : MonoBehaviourPun {
    
     void Start()
     {
-
-
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         healthTextObj = canvas.transform.Find("HealthText").gameObject;
         canMove = false;
- 
+
+        //Gør så at alle animationer ikke kører, når at man joiner et rum.
+        if (photonView.IsMine)
+        {
+            photonView.RPC("SpawnAnim", RpcTarget.All);
+        }
     }
 
     private void Update()
@@ -159,6 +162,12 @@ public class BallControl : MonoBehaviourPun {
     void PlayerDie()
     {
         GameObject.Destroy(this.gameObject);
+    }
+
+    [PunRPC]
+    void SpawnAnim()
+    {
+        GetComponent<Animator>().Play("BallSpawnAnim");
     }
 
     private void OnDestroy()
