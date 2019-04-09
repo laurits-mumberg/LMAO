@@ -48,6 +48,10 @@ public class PlayerInfoScript : MonoBehaviourPunCallbacks
                 yourBallColor = BallLook.BallColor.Blue;
                 prewiewBall.GetComponent<Renderer>().material.color = Color.blue;
                 break;
+            default:
+                yourBallColor = BallLook.BallColor.White;
+                prewiewBall.GetComponent<Renderer>().material.color = Color.white;
+                break;
         }
     }
 
