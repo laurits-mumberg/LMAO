@@ -8,17 +8,22 @@ public class CameraFollowPlayer : MonoBehaviourPunCallbacks
 {
 
     public Transform target;
-    public bool followPlayer = true;
+    public bool followPlayer;
     public float smoothTime = 0.3f;
     public float xOffset;
     public float yOffset;
+
+    public bool isMoovingToStartPos = false;
+    public bool cameraReady = false;
+    Vector3 gameStartPos;
 
     private Vector3 velocity = Vector3.zero;
     private GameObject ballToFollow;
 
     private void Start()
     {
-
+        followPlayer = false;
+        gameStartPos = new Vector3(0, 2, transform.position.z);
     }
 
     void FixedUpdate()
@@ -26,6 +31,24 @@ public class CameraFollowPlayer : MonoBehaviourPunCallbacks
         if (followPlayer)
         {
             FollowPLayer();
+        }
+
+        if (isMoovingToStartPos)
+        {
+            MoveToStartPos();
+        }
+    }
+
+     void MoveToStartPos()
+    {
+        if(transform.position != gameStartPos)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, gameStartPos, ref velocity, smoothTime);
+        }
+        else
+        {
+            isMoovingToStartPos = false;
+            cameraReady = true;
         }
     }
 

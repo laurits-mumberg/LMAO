@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,20 +31,21 @@ public class BallControl : MonoBehaviourPun {
     public float dmgperSecInZone;
     private float timeSinceDmgTaken = 0;
 
-   
+    //Animationsvariabler
+    private bool hasJumpedIn;
+
     void Start()
     {
+        if (photonView.IsMine)
+        {
+            GetComponent<Renderer>().enabled = false;
+        }
+
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         healthTextObj = canvas.transform.Find("HealthText").gameObject;
         canMove = false;
-
-        //Gør så at alle animationer ikke kører, når at man joiner et rum.
-        if (photonView.IsMine)
-        {
-            photonView.RPC("SpawnAnim", RpcTarget.All);
-        }
     }
 
     private void Update()
@@ -64,6 +66,25 @@ public class BallControl : MonoBehaviourPun {
         }
 
         healthTextObj.GetComponent<Text>().text = "Health: " + health;
+
+
+        if (!hasJumpedIn)
+        {
+            if (!Camera.main.GetComponent<CameraFollowPlayer>().cameraReady)
+            {
+                return;
+            }
+
+            //Gør så at alle animationer ikke kører, når at man joiner et rum.
+            if (photonView.IsMine)
+            {
+                photonView.RPC("SpawnAnim", RpcTarget.All);
+                hasJumpedIn = true;
+            }
+
+            SetupUI();
+
+        }
     }
 
 
@@ -158,6 +179,13 @@ public class BallControl : MonoBehaviourPun {
             }
         }
     }
+
+    private void SetupUI()
+    {
+
+    }
+
+
     [PunRPC]
     void PlayerDie()
     {
@@ -168,6 +196,7 @@ public class BallControl : MonoBehaviourPun {
     void SpawnAnim()
     {
         GetComponent<Animator>().Play("BallSpawnAnim");
+        GetComponent<Renderer>().enabled = true;
     }
 
     private void OnDestroy()
@@ -188,7 +217,13 @@ public class BallControl : MonoBehaviourPun {
 
     public void RemoveAnim()
     {
+        print("ASFJSFBSAJFSKAFSABFSAJK");
         GetComponent<Animator>().enabled = false;
+
+        if (photonView.IsMine)
+        {
+            Camera.main.GetComponent<CameraFollowPlayer>().followPlayer = true;
+        }
     }
 
 }

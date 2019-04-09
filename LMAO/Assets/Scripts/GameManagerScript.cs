@@ -159,7 +159,11 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         }
         timerRunning = true;
 
-        SpawnPLayer();
+        Camera.main.GetComponent<CameraFollowPlayer>().isMoovingToStartPos = true;
+
+        SpawnPlayer();
+
+        timerTextObj.SetActive(true);
 
         for (int i = 1; i <= obstSpawnAtStartCount; i++)
         {
@@ -174,10 +178,12 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
-    public void SpawnPLayer()
+    public void SpawnPlayer()
     {
         PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0 + ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.5f), 0, 0), Quaternion.identity, 0);
     }
+
+
 
 
 
