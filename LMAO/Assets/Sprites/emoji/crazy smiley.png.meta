@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 3b43cb1d8cf248a45abe2e8388770f65
+guid: f3f0b198834bb5a4cab0d5b509ccd008
 TextureImporter:
   fileIDToRecycleName:
-    21300000: xdsmileyface stjerne 2_0
-    21300002: xdsmileyface stjerne 2_1
-    21300004: xdsmileyface stjerne 2_2
-    21300006: xdsmileyface stjerne 2_3
-    21300008: xdsmileyface stjerne 2_4
+    21300000: crazy smiley_0
+    21300002: crazy smiley_1
+    21300004: crazy smiley_2
+    21300006: crazy smiley_3
+    21300008: crazy smiley_4
+    21300010: crazy smiley_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -89,101 +90,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: xdsmileyface stjerne 2_0
+      name: crazy smiley_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 386
-        width: 104
-        height: 50
+        x: 212
+        y: 236
+        width: 25
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db6f6cab850daee4c827a810093e154c
+      spriteID: c9b92d23113623e42ae57b3ba76d68f3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xdsmileyface stjerne 2_1
+      name: crazy smiley_1
       rect:
         serializedVersion: 2
-        x: 236
-        y: 252
+        x: 287
+        y: 232
         width: 159
         height: 159
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8bc2cc56b6d4848814892e4238fa81
+      spriteID: 9a1ac9063ebb3294d8e8abe20ccc23eb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xdsmileyface stjerne 2_2
+      name: crazy smiley_2
       rect:
         serializedVersion: 2
-        x: 463
-        y: 238
-        width: 28
-        height: 192
-      alignment: 9
-      pivot: {x: 0.5, y: 0.015314261}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 967578d7c06e2044a9cea343ccdfb458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: xdsmileyface stjerne 2_3
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 269
-        width: 81
-        height: 81
+        x: 485
+        y: 184
+        width: 77
+        height: 88
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c08e4afb755327458b72aae8ea7992c
+      spriteID: 82073f3f04c767d4ba5dfacac26634c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xdsmileyface stjerne 2_4
+      name: crazy smiley_3
       rect:
         serializedVersion: 2
-        x: 155
-        y: 198
-        width: 81
-        height: 81
+        x: 157
+        y: 71
+        width: 59
+        height: 59
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d421140ab62b74146ad52ecdf53b9dca
+      spriteID: 0e0419cc20665204287571f63fd6dd2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crazy smiley_4
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 80
+        width: 86
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15b998ad2672224eb0940188213bd5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crazy smiley_5
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 43
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd3a30fcee15d44db7cd614ed8a6b3e
       vertices: []
       indices: 
       edges: []
@@ -191,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: bd47ad1a2b8b4024098d5322b9d26c22
+    spriteID: 2e4fa95d20fac764c929d585a565eb54
     vertices: []
     indices: 
     edges: []
