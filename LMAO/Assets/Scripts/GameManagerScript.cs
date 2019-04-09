@@ -180,7 +180,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer()
     {
-        PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0 + ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.5f), 0, 0), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(-2.5f + ((PhotonNetwork.CurrentRoom.PlayerCount - 1) * 0.5f), 0, 0), Quaternion.identity, 0);
     }
 
 
