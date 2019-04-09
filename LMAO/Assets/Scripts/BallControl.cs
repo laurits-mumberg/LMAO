@@ -217,7 +217,6 @@ public class BallControl : MonoBehaviourPun {
 
     public void RemoveAnim()
     {
-        print("ASFJSFBSAJFSKAFSABFSAJK");
         GetComponent<Animator>().enabled = false;
 
         if (photonView.IsMine)
