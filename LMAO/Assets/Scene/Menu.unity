@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 252346026}
   - component: {fileID: 252346030}
   - component: {fileID: 252346031}
+  - component: {fileID: 252346033}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -474,6 +475,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prewiewBall: {fileID: 579802543}
   yourBallColor: 0
+--- !u!114 &252346033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252346025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c76cf299acd1b643a34d662638a2ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorOfPlayerBall: 0
+  connectButton: {fileID: 1951460732}
+  cancenButton: {fileID: 0}
 --- !u!1 &285095015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,8 +1744,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757331468}
-  - component: {fileID: 1757331467}
-  - component: {fileID: 1757331466}
   m_Layer: 0
   m_Name: Launcher
   m_TagString: Untagged
@@ -1737,35 +1751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1757331466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757331465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d848f1eac9b3e4f9db9362bfec2cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prewiewBall: {fileID: 0}
-  yourBallColor: 0
---- !u!114 &1757331467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757331465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c76cf299acd1b643a34d662638a2ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorOfPlayerBall: 0
-  connectButton: {fileID: 1951460732}
-  cancenButton: {fileID: 0}
 --- !u!4 &1757331468
 Transform:
   m_ObjectHideFlags: 0
@@ -1866,7 +1851,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inventory
+  m_Text: Change color
 --- !u!222 &1855170653
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2049,8 +2034,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1757331467}
-        m_MethodName: JoinRandomGame
+      - m_Target: {fileID: 252346033}
+        m_MethodName: StartJoinAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2177,7 +2162,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2035095503}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252346031}
+        m_MethodName: ChangeToNextColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2035095503
@@ -2376,25 +2372,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.587002
       objectReference: {fileID: 0}
-    - target: {fileID: 3871042029785520688, guid: c52af77691871714dbc2f92c37be1e83,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 202142.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871042029785520688, guid: c52af77691871714dbc2f92c37be1e83,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2881.479
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871042029785520688, guid: c52af77691871714dbc2f92c37be1e83,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3100.095
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871042029782653456, guid: c52af77691871714dbc2f92c37be1e83,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 7070bc7c01b63884abcd346fb7f8257f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c52af77691871714dbc2f92c37be1e83, type: 3}

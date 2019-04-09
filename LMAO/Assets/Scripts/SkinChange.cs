@@ -1,13 +1,21 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class SkinChange : MonoBehaviour
+public class SkinChange : MonoBehaviourPunCallbacks
 {
     public GameObject prewiewBall;
     public BallLook.BallColor yourBallColor;
+    private Hashtable playerInfoTable = new Hashtable();
     Animator animator;
+
+    //Slet senere
+    private int currentColorInt = 1;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -37,5 +45,20 @@ public class SkinChange : MonoBehaviour
                 break;
         }
         animator.SetInteger("ColorChange", 0);
+    }
+
+
+    //Slet senere
+    public void ChangeToNextColor()
+    {
+        int nextColorInt = (currentColorInt + 1) % 4;
+        animator.SetInteger("ColorChange", nextColorInt);
+        currentColorInt = nextColorInt;
+    }
+
+    public void SubmitPlayerInfo()
+    {
+        playerInfoTable.Add("ballcolor", yourBallColor);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerInfoTable);
     }
 }
