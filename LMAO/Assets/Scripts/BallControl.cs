@@ -36,7 +36,7 @@ public class BallControl : MonoBehaviourPun {
 
     void Start()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine || !hasJumpedIn)
         {
             GetComponent<Renderer>().enabled = false;
         }
