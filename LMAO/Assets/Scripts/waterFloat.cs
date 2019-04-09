@@ -25,6 +25,10 @@ public class waterFloat : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag != "Player")
+        {
+            return;
+        }
         ballBreakSpeed = collision.gameObject.GetComponent<BallControl>().breakSpeed;
         collision.gameObject.GetComponent<BallControl>().breakSpeed = newBreakSpeed;
         collision.gameObject.GetComponent<BallControl>().canMove = false;

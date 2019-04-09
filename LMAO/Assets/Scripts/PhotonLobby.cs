@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Animations;
 
 public class PhotonLobby : MonoBehaviourPunCallbacks {
 
@@ -14,10 +15,14 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
     public GameObject connectButton;
     public GameObject cancenButton;
 
+    private Animator canvasAnimator;
+
     // Use this for initialization
     void Start() {
         PhotonNetwork.ConnectUsingSettings();
         print("Prøver at connecte");
+
+        canvasAnimator = GetComponent<Animator>();
     }
 
     public override void OnConnectedToMaster()
@@ -26,9 +31,14 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
         connectButton.SetActive(true);
     }
 
+    public void StartJoinAnim()
+    {
+        canvasAnimator.SetInteger("Menu state", 1);
+    }
+
     public void JoinRandomGame()
     {
-        GetComponent<PlayerInfoScript>().SubmitPlayerInfo();
+        GetComponent<SkinChange>().SubmitPlayerInfo();
         SceneManager.LoadScene("Game");
     }
 
