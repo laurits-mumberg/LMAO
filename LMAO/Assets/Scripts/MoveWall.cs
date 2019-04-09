@@ -41,7 +41,6 @@ public class MoveWall : MonoBehaviour
         {
             if((transform.position - targetPos).magnitude < 0.15)
             {
-                print("ER VED TARGET");
                 rb2d.MovePosition(targetPos);
                 isMoving = false;
                 return;
