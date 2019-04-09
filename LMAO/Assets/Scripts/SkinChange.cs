@@ -51,7 +51,7 @@ public class SkinChange : MonoBehaviourPunCallbacks
     //Slet senere
     public void ChangeToNextColor()
     {
-        int nextColorInt = (currentColorInt + 1) % 4;
+        int nextColorInt = (currentColorInt + 1) % 5;
         animator.SetInteger("ColorChange", nextColorInt);
         currentColorInt = nextColorInt;
     }
