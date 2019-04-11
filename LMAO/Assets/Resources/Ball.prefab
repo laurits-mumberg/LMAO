@@ -208,6 +208,8 @@ MonoBehaviour:
   maxSpeed: 20
   breakSpeed: 0.98
   minSpeed: 0.5
+  minShootRange: 0.5
+  cancelRange: 0
   vectorToShoot: {x: 0, y: 0}
   isShooting: 0
   health: 100
