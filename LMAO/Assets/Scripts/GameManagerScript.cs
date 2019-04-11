@@ -262,7 +262,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel("Launcher");
+        PhotonNetwork.LoadLevel("Menu");
     }
 
 }

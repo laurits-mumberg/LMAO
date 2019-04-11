@@ -34,12 +34,17 @@ public class BallControl : MonoBehaviourPun {
     //Animationsvariabler
     private bool hasJumpedIn;
 
+    private void Awake()
+    {
+        if (photonView.IsMine)
+        {
+            photonView.RPC("DisableRenderer", RpcTarget.All);
+        }
+
+    }
+
     void Start()
     {
-        if (photonView.IsMine || !hasJumpedIn)
-        {
-            GetComponent<Renderer>().enabled = false;
-        }
 
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
@@ -50,6 +55,12 @@ public class BallControl : MonoBehaviourPun {
 
     private void Update()
     {
+
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         if (canMove)
         {
             BallShooting();
@@ -60,10 +71,7 @@ public class BallControl : MonoBehaviourPun {
             photonView.RPC("PlayerDie", RpcTarget.All);
         }
 
-        if (!photonView.IsMine)
-        {
-            return;
-        }
+
 
         healthTextObj.GetComponent<Text>().text = "Health: " + health;
 
@@ -82,7 +90,6 @@ public class BallControl : MonoBehaviourPun {
                 hasJumpedIn = true;
             }
 
-            SetupUI();
 
         }
     }
@@ -180,10 +187,7 @@ public class BallControl : MonoBehaviourPun {
         }
     }
 
-    private void SetupUI()
-    {
 
-    }
 
 
     [PunRPC]
@@ -198,6 +202,13 @@ public class BallControl : MonoBehaviourPun {
         GetComponent<Animator>().Play("BallSpawnAnim");
         GetComponent<Renderer>().enabled = true;
     }
+
+    [PunRPC]
+    void DisableRenderer()
+    {
+        GetComponent<Renderer>().enabled = false;
+    }
+
 
     private void OnDestroy()
     {
