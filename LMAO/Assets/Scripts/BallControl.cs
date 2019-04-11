@@ -34,6 +34,7 @@ public class BallControl : MonoBehaviourPun {
     private float timeSinceDmgTaken = 0;
 
     //Animationsvariabler
+    private bool shouldJumpIn = false;
     private bool hasJumpedIn;
 
     private void Awake()
@@ -78,7 +79,7 @@ public class BallControl : MonoBehaviourPun {
         healthTextObj.GetComponent<Text>().text = "Health: " + health;
 
 
-        if (!hasJumpedIn)
+        if (!hasJumpedIn && shouldJumpIn)
         {
             if (!Camera.main.GetComponent<CameraFollowPlayer>().cameraReady)
             {
@@ -217,6 +218,7 @@ public class BallControl : MonoBehaviourPun {
     void DisableRenderer()
     {
         GetComponent<Renderer>().enabled = false;
+        shouldJumpIn = true;
     }
 
 
