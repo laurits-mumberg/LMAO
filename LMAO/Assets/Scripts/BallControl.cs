@@ -19,6 +19,8 @@ public class BallControl : MonoBehaviourPun {
     public float maxSpeed;
     public float breakSpeed;
     public float minSpeed = 0.5f;
+    public float minShootRange = 1;
+    public bool cancelRange = false;
 
     public Vector2 vectorToShoot;
 
@@ -118,11 +120,19 @@ public class BallControl : MonoBehaviourPun {
                 vectorToShoot = Vector2.ClampMagnitude(vectorToShoot, maxSpeed);
             }
 
+            if(vectorToShoot.magnitude < minShootRange)
+            {
+                cancelRange = true;
+            }
+            else
+            {
+                cancelRange = false;
+            }
 
             if (!isMoving && Input.GetMouseButtonUp(0) && isShooting)
             {
 
-                if (vectorToShoot.magnitude < 1)
+                if (cancelRange == true)
                 {
                     //Cancel shit
                     isShooting = false;
