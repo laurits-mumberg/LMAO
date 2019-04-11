@@ -79,7 +79,7 @@ public class BallControl : MonoBehaviourPun {
         healthTextObj.GetComponent<Text>().text = "Health: " + health;
 
 
-        if (!hasJumpedIn && shouldJumpIn)
+        if (!hasJumpedIn)
         {
             if (!Camera.main.GetComponent<CameraFollowPlayer>().cameraReady)
             {
@@ -210,7 +210,11 @@ public class BallControl : MonoBehaviourPun {
     [PunRPC]
     void SpawnAnim()
     {
-        GetComponent<Animator>().Play("BallSpawnAnim");
+        if (shouldJumpIn)
+        {
+            GetComponent<Animator>().Play("BallSpawnAnim");
+            
+        }
         GetComponent<Renderer>().enabled = true;
     }
 
