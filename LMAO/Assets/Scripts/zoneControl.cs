@@ -45,6 +45,7 @@ public class zoneControl : MonoBehaviour
         {
             return;
         }
+        markerObject.SetActive(true);
 
         if (!markerReachedPos)
         {

@@ -9,6 +9,7 @@ TagManager:
   - zone
   - Canvas
   - Water
+  - zoneMarker
   layers:
   - Default
   - TransparentFX
