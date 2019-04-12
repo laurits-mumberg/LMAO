@@ -9,6 +9,7 @@ public class MoveWall : MonoBehaviour
     private bool isLeft = true;
     public float posChangeX;
     public float posChangeY;
+    public bool randomStart;
 
     private Vector3 originalPos;
     private Vector3 targetPos;
@@ -20,7 +21,7 @@ public class MoveWall : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         originalPos = transform.position;
 
-        if (Random.value < .5)
+        if (Random.value < .5 && randomStart)
         {
             MoveThisWall();
         }
