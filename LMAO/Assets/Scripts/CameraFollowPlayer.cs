@@ -44,6 +44,10 @@ public class CameraFollowPlayer : MonoBehaviourPunCallbacks
         if(transform.position != gameStartPos)
         {
             transform.position = Vector3.SmoothDamp(transform.position, gameStartPos, ref velocity, smoothTime);
+            if(Vector3.Distance(transform.position,gameStartPos) < 0.05)
+            {
+                transform.position = gameStartPos;
+            }
         }
         else
         {
