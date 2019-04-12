@@ -56,7 +56,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     {
         CheckForWin();
         Runtimer();
-        IncreaseZoneSpped();
+        //IncreaseZoneSpped();
     }
 
     private void IncreaseZoneSpped()
@@ -78,7 +78,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
-        MoveZone();
+        //MoveZone();
     }
 
     private void CheckForWin()
@@ -106,6 +106,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         }
     }
 
+    //Legacy kode der ikke bliver brugt. Styres nu af zonen selv.
     private void MoveZone()
     {
         if (!zoneIsActive)
