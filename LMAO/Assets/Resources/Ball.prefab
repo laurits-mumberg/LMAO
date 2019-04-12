@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 7458826341668956878}
   - component: {fileID: 1161188203049037018}
   - component: {fileID: 8285352228108488612}
+  - component: {fileID: 7929639192996646979}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -277,3 +278,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7929639192996646979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5203749911364798925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a081ccea5e2d67749815e8f831c0bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  gameManagerObj: {fileID: 0}
+  markerUpArrow: {fileID: 0}
+  markerDownArrow: {fileID: 0}
