@@ -13,9 +13,6 @@ public class SkinChange : MonoBehaviourPunCallbacks
     private Hashtable playerInfoTable = new Hashtable();
     Animator animator;
 
-    //Slet senere
-    private int currentColorInt = 1;
-
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -49,11 +46,9 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
 
     //Slet senere
-    public void ChangeToNextColor()
+    public void ChangeToNextColor(int nextColorInt)
     {
-        int nextColorInt = (currentColorInt + 1) % 5;
         animator.SetInteger("ColorChange", nextColorInt);
-        currentColorInt = nextColorInt;
     }
 
     public void SubmitPlayerInfo()
