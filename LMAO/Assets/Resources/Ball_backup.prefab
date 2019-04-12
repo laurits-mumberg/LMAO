@@ -106,7 +106,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114628434932578962}
   viewIdField: 0
-  InstantiationId: 2
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &114066548944796420
 MonoBehaviour:
@@ -173,14 +173,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
+  health: {fileID: 0}
   power: 5
   maxSpeed: 20
   breakSpeed: 0.98
   minSpeed: 0.5
+  minShootRange: 1
+  cancelRange: 0
   vectorToShoot: {x: 0, y: 0}
   isShooting: 0
-  health: 100
-  dmgperSecInZone: 10
+  dmgperSecInZone: 5
 --- !u!58 &8229537419952073472
 CircleCollider2D:
   m_ObjectHideFlags: 0

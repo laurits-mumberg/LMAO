@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int health;
+    public float maxHealth = 100f;
+    private float health;
     
     //slider on canvas
     public Slider healthbar;
@@ -27,8 +27,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    void DealDamage(int dmg)
+    public void DealDamage(float dmg)
     {
         health -= dmg;
+        print(health);
     }
 }
