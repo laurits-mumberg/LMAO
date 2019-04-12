@@ -42,11 +42,18 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
     //Debug
     public int playersLeftForWin = 1;
+    public bool debugMode;
 
     // Use this for initialization
     void Start () {
-        PhotonNetwork.JoinRandomRoom();
-
+        if (!debugMode)
+        {
+            PhotonNetwork.JoinRandomRoom();
+        }
+        else
+        {
+            CreateRoom();
+        }
         Level1Obstacles = Resources.LoadAll("Obstacles/Level1", typeof(GameObject)).Cast<GameObject>().ToArray();
 
         
