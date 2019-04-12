@@ -18,8 +18,8 @@ public class MoveMenu : MonoBehaviour
         
     }
 
-    public void StartCustomizeAnim()
+    public void ChangeMenuState(int menuState)
     {
-        canvasAnimator.SetInteger("Menu state", 2);
+        canvasAnimator.SetInteger("Menu state", menuState);
     }
 }
