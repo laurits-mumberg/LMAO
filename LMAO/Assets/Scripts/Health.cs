@@ -27,7 +27,7 @@ public class Health : MonoBehaviourPun
     void Update()
     {
         healthbar.value = health / maxHealth;
-        if (health < 0 )
+        if (health <= 0 )
         {
             photonView.RPC("PlayerDie", RpcTarget.All);
         }
@@ -38,4 +38,5 @@ public class Health : MonoBehaviourPun
         health -= dmg;
         print(health);
     }
+    
 }

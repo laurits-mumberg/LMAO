@@ -351,7 +351,8 @@ MonoBehaviour:
   cancelRange: 0
   vectorToShoot: {x: 0, y: 0}
   isShooting: 0
-  dmgperSecInZone: 10
+  tickRate: 0.1
+  dmgperTickInZone: 1
 --- !u!58 &4179854736127318411
 CircleCollider2D:
   m_ObjectHideFlags: 0
