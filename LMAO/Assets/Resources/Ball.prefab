@@ -433,8 +433,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   gameManagerObj: {fileID: 0}
+  zoneObj: {fileID: 0}
   markerUpArrow: {fileID: 0}
   markerDownArrow: {fileID: 0}
+  sliderRange: 25
+  zoneInfoObj: {fileID: 0}
+  zoneSlider: {fileID: 0}
+  ballSlider: {fileID: 0}
+  markerSlider: {fileID: 0}
 --- !u!114 &5879943437667816678
 MonoBehaviour:
   m_ObjectHideFlags: 0

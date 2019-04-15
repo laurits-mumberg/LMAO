@@ -18,6 +18,7 @@ public class zoneControl : MonoBehaviour
     public bool zoneReachedPos;
     public bool markerReachedPos = false;
     public Vector3 nextPos;
+    public Vector3 lastPos;
     public float zoneOffset;
     private int timesMoved = 0;
     
@@ -28,6 +29,7 @@ public class zoneControl : MonoBehaviour
     void Start()
     {
         nextPos = markerObject.transform.position;
+        lastPos = nextPos;
         zoneOffset = transform.position.y + (transform.position.y - markerObject.transform.position.y);
     }
 
@@ -95,6 +97,7 @@ public class zoneControl : MonoBehaviour
 
     void setNextMarker()
     {
+        lastPos = nextPos;
         nextPos = new Vector3(nextPos.x, nextPos.y + standardMoveLength + lengthIncrease * timesMoved);
         markerReachedPos = false;
     }
