@@ -100,7 +100,6 @@ public class BallControl : MonoBehaviourPun {
             }
         }
 
-
     }
 
     void LateRemoveAnim()
@@ -126,7 +125,7 @@ public class BallControl : MonoBehaviourPun {
 
         if (photonView.IsMine)
         {
-            if (Input.GetMouseButton(0) && !isMoving)
+            if (Input.GetMouseButton(0) && !isMoving )
             {
                 if(Cursor.lockState == CursorLockMode.Locked)
                 {

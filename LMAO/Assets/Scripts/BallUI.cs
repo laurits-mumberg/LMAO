@@ -7,21 +7,26 @@ using UnityEngine.UI;
 
 public class BallUI : MonoBehaviourPun
 {
-    public GameObject canvas;
-    public GameObject gameManagerObj;
+    private GameObject canvas;
+    private GameObject gameManagerObj;
 
-    //Zone ting
+    //De nye zone ting
+    public float sliderRange;
+    private GameObject zoneInfoObj;
+    private Slider zoneSlider;
+    private Slider ballSlider;
+    private Slider markerSlider;
+
+    //Gamle zone ting
     private GameObject lengthToMarkerUI;
     private GameObject zoneMarkerObj;
-    public GameObject zoneObj;
-    public GameObject markerUpArrow;
-    public GameObject markerDownArrow;
+    private GameObject zoneObj;
+    private GameObject markerUpArrow;
+    private GameObject markerDownArrow;
 
-    public float sliderRange;
-    public GameObject zoneInfoObj;
-    public Slider zoneSlider;
-    public Slider ballSlider;
-    public Slider markerSlider;
+    //Leave button ting
+    private GameObject leaveButton;
+    public bool isInMenu;
 
     void Start()
     {
@@ -49,6 +54,8 @@ public class BallUI : MonoBehaviourPun
         zoneSlider = zoneInfoObj.transform.Find("ZoneSlider").gameObject.GetComponent<Slider>();
         ballSlider = zoneInfoObj.transform.Find("BallSlider").gameObject.GetComponent<Slider>();
         markerSlider = zoneInfoObj.transform.Find("MarkerSlider").gameObject.GetComponent<Slider>();
+
+        leaveButton = canvas.transform.Find("ButtonLeave").gameObject;
     }
 
     void Update()
@@ -57,9 +64,10 @@ public class BallUI : MonoBehaviourPun
         {
             return;
         }
-        //UpdateMarkerUI();
+        //UpdateMarkerUI(); <-- Outdated
         UpdateMarkerUI2();
 
+        OpenMenu();
     }
 
     void UpdateMarkerUI2()
@@ -95,11 +103,12 @@ public class BallUI : MonoBehaviourPun
 
         if(sliderRange < lengthToMarker || lengthToMarker < -sliderRange)
         {
-            markerSlider.enabled = false;
+            print("HEEER REEEE");
+            markerSlider.transform.gameObject.SetActive(false);
         }
         else
         {
-            markerSlider.enabled = true;
+            markerSlider.transform.gameObject.SetActive(true);
             markerSlider.value = lengthToMarker;
         }
 
@@ -107,6 +116,38 @@ public class BallUI : MonoBehaviourPun
 
 
     }
+
+    void OpenMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (!isInMenu)
+            {
+                //Åben "menu" lol bare en kanp
+                GetComponent<BallControl>().canMove = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                leaveButton.SetActive(true);
+
+                isInMenu = true;
+            }
+            else
+            {
+                print("her");
+                //Luk "menu"
+                GetComponent<BallControl>().canMove = true;
+                GetComponent<BallControl>().cancelRange = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                leaveButton.SetActive(false);
+
+                isInMenu = false;
+            }
+
+
+        }
+    }
+
 
     void UpdateMarkerUI()
     {
