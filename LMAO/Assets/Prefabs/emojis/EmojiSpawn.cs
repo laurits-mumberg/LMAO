@@ -5,7 +5,7 @@ using UnityEngine;
 public class EmojiSpawn : MonoBehaviour
 {
 
-    public GameObject curEmoji;
+    public GameObject[] emoji;
     public float EmojiCooldown;
     private float EmojiTimer;
 
@@ -18,17 +18,15 @@ public class EmojiSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EmojiTimer <= 0)
+    }
+
+    public void SpawnEmoji(int selectedEmoji)
+    {
+        foreach (Transform child in transform)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Instantiate(curEmoji, transform);
-                EmojiTimer = EmojiCooldown;
-            }
+            Destroy(child.gameObject);
         }
-        else
-        {
-            EmojiTimer -= Time.deltaTime;
-        }
+
+        Instantiate(emoji[selectedEmoji], transform);
     }
 }
