@@ -18,14 +18,24 @@ public class Health : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         health = maxHealth;
         canvas = GameObject.FindGameObjectWithTag("Canvas");
-        healthbar = canvas.GetComponentInChildren<Slider>();
+        healthbar = canvas.transform.Find("HealthSlider").gameObject.GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         healthbar.value = health / maxHealth;
         if (health <= 0 )
         {
