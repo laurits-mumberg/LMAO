@@ -14,14 +14,14 @@ public class BallLook : MonoBehaviourPunCallbacks
     GradientColorKey[] colorKey;
     GradientAlphaKey[] alphaKey;
 
-    private TrailRenderer tr;
+    public TrailRenderer tr;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        tr = gameObject.GetComponentInChildren<TrailRenderer>();
         SetballColor();
+        SetTrailColor();
     }
 
     // Update is called once per frame
@@ -33,6 +33,7 @@ public class BallLook : MonoBehaviourPunCallbacks
     public void SetballColor()
     {
         BallColor thisBallsColor = (BallColor)photonView.Owner.CustomProperties["ballcolor"];
+        print(thisBallsColor);
         switch (thisBallsColor)
         {
             case BallColor.Red:
@@ -56,18 +57,17 @@ public class BallLook : MonoBehaviourPunCallbacks
 
     public void SetTrailColor()
     {
-        BallTrail thisBallsTrail = (BallTrail)photonView.Owner.CustomProperties["ballcolor"];
+        BallTrail thisBallsTrail = (BallTrail)photonView.Owner.CustomProperties["ballTrail"];
+        print(thisBallsTrail);
         switch (thisBallsTrail)
         {
             case BallTrail.Fire:
                 tr.startColor = Color.yellow;
                 tr.endColor = Color.red;
-                gameObject.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
                 break;
             case BallTrail.Water:
                 tr.startColor = Color.blue;
                 tr.endColor = Color.white;
-                gameObject.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
                 break;
         }
     }
