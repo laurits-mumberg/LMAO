@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using Photon.Realtime
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BallUI : MonoBehaviour
+public class BallUI : MonoBehaviourPun
 {
     public GameObject canvas;
     public GameObject gameManagerObj;
@@ -25,6 +27,10 @@ public class BallUI : MonoBehaviour
 
     void CanvasSetup()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         canvas = GameObject.FindGameObjectWithTag("Canvas");
 
         lengthToMarkerUI = canvas.transform.Find("MarkerText").gameObject;
@@ -35,7 +41,10 @@ public class BallUI : MonoBehaviour
 
     void Update()
     {
-
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         UpdateMarkerUI();
 
 
