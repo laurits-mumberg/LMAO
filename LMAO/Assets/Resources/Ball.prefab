@@ -108,8 +108,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.21621895
+        time: 0.022987366
+        value: 0.19673347
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -118,7 +118,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.19480896
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -160,7 +160,7 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
@@ -397,6 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4411d894c6a37c74a951b72840d4cec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  lololMaterial: {fileID: 2100000, guid: b8e10c0af3ac55d4ba4a588f78ab4610, type: 2}
+  hahaMaterial: {fileID: 2100000, guid: 25f12e535b692194f967541816acab45, type: 2}
   tr: {fileID: 7291411306282422163}
 --- !u!95 &8285352228108488612
 Animator:

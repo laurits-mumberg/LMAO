@@ -21,6 +21,10 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
     private TrailRenderer tr;
 
+    public Material normalMaterial;
+    public Material lololMaterial;
+    public Material hahaMaterial;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -66,13 +70,38 @@ public class SkinChange : MonoBehaviourPunCallbacks
                 tr.endColor = Color.red;
                 yourTrailColor = BallLook.BallTrail.Fire;
                 prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
+                tr.material = normalMaterial;
+                tr.startWidth = 0.5f;
+                tr.endWidth = 0.0f;
                 break;
             case 2:
                 tr.startColor = Color.blue;
                 tr.endColor = Color.white;
                 yourTrailColor = BallLook.BallTrail.Water;
                 prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
+                tr.material = normalMaterial;
+                tr.startWidth = 0.5f;
+                tr.endWidth = 0.0f;
                 break;
+            case 3:
+                tr.startColor = Color.white;
+                tr.endColor = Color.white;
+                yourTrailColor = BallLook.BallTrail.Lolol;
+                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
+                tr.material = lololMaterial;
+                tr.startWidth = 0.5f;
+                tr.endWidth = 0.5f;
+                break;
+            case 4:
+                tr.startColor = Color.white;
+                tr.endColor = Color.white;
+                yourTrailColor = BallLook.BallTrail.haha;
+                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
+                tr.material = hahaMaterial;
+                tr.startWidth = 0.5f;
+                tr.endWidth = 0.5f;
+                break;
+
         }
         animator.SetInteger("TrailChange", 0);
     }
