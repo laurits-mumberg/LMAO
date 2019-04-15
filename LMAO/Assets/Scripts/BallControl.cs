@@ -13,7 +13,7 @@ public class BallControl : MonoBehaviourPun {
     //Objekter i scenen
     private GameObject gameManagerObj;
     private GameObject canvas;
-    private GameObject healthTextObj;
+    public Health health;
 
     public float power;
     public float maxSpeed;
@@ -29,7 +29,7 @@ public class BallControl : MonoBehaviourPun {
     public bool isShooting = false;
 
     //stats
-    public float health = 100;
+    //public float health = 100;
     public float dmgperSecInZone;
     private float timeSinceDmgTaken = 0;
 
@@ -52,7 +52,7 @@ public class BallControl : MonoBehaviourPun {
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
-        healthTextObj = canvas.transform.Find("HealthText").gameObject;
+        health = (Health)FindObjectOfType(typeof(Health));
         canMove = false;
     }
 
@@ -69,14 +69,15 @@ public class BallControl : MonoBehaviourPun {
             BallShooting();
         }
 
-        if (health <= 0)
-        {
-            photonView.RPC("PlayerDie", RpcTarget.All);
-        }
+        //important
+        //if (health <= 0)
+        //{
+        //    photonView.RPC("PlayerDie", RpcTarget.All);
+        //}
 
 
 
-        healthTextObj.GetComponent<Text>().text = "Health: " + health;
+        //healthTextObj.GetComponent<Text>().text = "Health: " + health;
 
 
         if (!hasJumpedIn)
@@ -177,7 +178,8 @@ public class BallControl : MonoBehaviourPun {
             if (timeSinceDmgTaken >= 1)
             {
                 //Tag damage
-                health -= dmgperSecInZone;
+                health.DealDamage(dmgperSecInZone);
+                //health -= dmgperSecInZone;
                 timeSinceDmgTaken = 0;
             }
         }
