@@ -61,6 +61,7 @@ public class BallControl : MonoBehaviourPun {
 
     private void Update()
     {
+        LateRemoveAnim();
 
         if (!photonView.IsMine)
         {
@@ -98,12 +99,16 @@ public class BallControl : MonoBehaviourPun {
             }
         }
 
-        if(gameManagerObj.GetComponent<GameManagerScript>().zoneIsActive == true && GetComponent<Animator>().enabled == true)
+
+    }
+
+    void LateRemoveAnim()
+    {
+        if (gameManagerObj.GetComponent<GameManagerScript>().zoneIsActive == true && GetComponent<Animator>().enabled == true)
         {
             GetComponent<Animator>().enabled = false;
         }
     }
-
 
     void FixedUpdate()
     {
