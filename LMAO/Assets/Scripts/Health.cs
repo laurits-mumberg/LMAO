@@ -38,4 +38,5 @@ public class Health : MonoBehaviourPun
         health -= dmg;
         print(health);
     }
+    
 }

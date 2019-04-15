@@ -31,7 +31,8 @@ public class BallControl : MonoBehaviourPun {
 
     //stats
     //public float health = 100;
-    public float dmgperSecInZone;
+    public float tickRate = 0.1f;
+    public float dmgperTickInZone;
     private float timeSinceDmgTaken = 0;
 
     //Animationsvariabler
@@ -187,10 +188,10 @@ public class BallControl : MonoBehaviourPun {
         {
             timeSinceDmgTaken += Time.deltaTime;
 
-            if (timeSinceDmgTaken >= 1)
+            if (timeSinceDmgTaken >= tickRate)
             {
                 //Tag damage
-                health.DealDamage(dmgperSecInZone);
+                health.DealDamage(dmgperTickInZone);
                 //health -= dmgperSecInZone;
                 timeSinceDmgTaken = 0;
             }
