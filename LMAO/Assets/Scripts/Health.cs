@@ -1,20 +1,26 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using Photon.Realtime;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviourPun
 {
     public float maxHealth = 100f;
-    private float health;
-    
+    public float health;
+
     //slider on canvas
+    public GameObject canvas;
     public Slider healthbar;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        healthbar = canvas.GetComponentInChildren<Slider>();
     }
 
     // Update is called once per frame
@@ -23,7 +29,7 @@ public class Health : MonoBehaviour
         healthbar.value = health / maxHealth;
         if (health < 0 )
         {
-            //die here
+            photonView.RPC("PlayerDie", RpcTarget.All);
         }
     }
 

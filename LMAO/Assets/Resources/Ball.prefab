@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 1161188203049037018}
   - component: {fileID: 8285352228108488612}
   - component: {fileID: 7929639192996646979}
+  - component: {fileID: 5879943437667816678}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -294,3 +295,18 @@ MonoBehaviour:
   gameManagerObj: {fileID: 0}
   markerUpArrow: {fileID: 0}
   markerDownArrow: {fileID: 0}
+--- !u!114 &5879943437667816678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5203749911364798925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a1ef01a644d554fa2fc8847fb71393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  canvas: {fileID: 0}
+  healthbar: {fileID: 0}
