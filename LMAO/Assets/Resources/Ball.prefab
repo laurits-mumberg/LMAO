@@ -434,7 +434,7 @@ MonoBehaviour:
   zoneObj: {fileID: 0}
   markerUpArrow: {fileID: 0}
   markerDownArrow: {fileID: 0}
-  sliderRange: 25
+  sliderRange: 20
   zoneInfoObj: {fileID: 0}
   zoneSlider: {fileID: 0}
   ballSlider: {fileID: 0}
