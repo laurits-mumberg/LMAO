@@ -23,6 +23,7 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
     public Material normalMaterial;
     public Material lololMaterial;
+    public Material hahaMaterial;
 
     private void Start()
     {
@@ -88,6 +89,15 @@ public class SkinChange : MonoBehaviourPunCallbacks
                 yourTrailColor = BallLook.BallTrail.Lolol;
                 prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
                 tr.material = lololMaterial;
+                tr.startWidth = 0.5f;
+                tr.endWidth = 0.5f;
+                break;
+            case 4:
+                tr.startColor = Color.white;
+                tr.endColor = Color.white;
+                yourTrailColor = BallLook.BallTrail.haha;
+                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
+                tr.material = hahaMaterial;
                 tr.startWidth = 0.5f;
                 tr.endWidth = 0.5f;
                 break;

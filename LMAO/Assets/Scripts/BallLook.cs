@@ -8,10 +8,11 @@ public class BallLook : MonoBehaviourPunCallbacks
 {
 
     public enum BallColor {White, Red, Green, Blue}
-    public enum BallTrail {Fire, Water, Lolol}
+    public enum BallTrail {Fire, Water, Lolol, haha}
 
     public Material normalMaterial;
     public Material lololMaterial;
+    public Material hahaMaterial;
 
     Gradient gradient;
     GradientColorKey[] colorKey;
@@ -82,6 +83,13 @@ public class BallLook : MonoBehaviourPunCallbacks
                 tr.startColor = Color.white;
                 tr.endColor = Color.white;
                 tr.material = lololMaterial;
+                tr.startWidth = 0.25f;
+                tr.endWidth = 0.25f;
+                break;
+            case BallTrail.haha:
+                tr.startColor = Color.white;
+                tr.endColor = Color.white;
+                tr.material = hahaMaterial;
                 tr.startWidth = 0.25f;
                 tr.endWidth = 0.25f;
                 break;
