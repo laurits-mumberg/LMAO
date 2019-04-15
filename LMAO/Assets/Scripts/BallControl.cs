@@ -21,6 +21,7 @@ public class BallControl : MonoBehaviourPun {
     public float minSpeed = 0.5f;
     public float minShootRange = 1;
     public bool cancelRange = false;
+    private Vector3 screenCenter;
 
     public Vector2 vectorToShoot;
 
@@ -48,6 +49,8 @@ public class BallControl : MonoBehaviourPun {
 
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
@@ -116,9 +119,17 @@ public class BallControl : MonoBehaviourPun {
         {
             if (Input.GetMouseButton(0) && !isMoving)
             {
+                if(Cursor.lockState == CursorLockMode.Locked)
+                {
+                    screenCenter = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = false;
+                }
+
+
                 isShooting = true;
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                vectorToShoot = (gameObject.transform.position - mousePos) * power;
+                vectorToShoot = (screenCenter - mousePos) * power;
                 vectorToShoot = Vector2.ClampMagnitude(vectorToShoot, maxSpeed);
             }
 
@@ -146,6 +157,7 @@ public class BallControl : MonoBehaviourPun {
                     //isMoving = true;
                     isShooting = false;
                 }
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
