@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderRange: 20
+  zoneTimerText: {fileID: 0}
   isInMenu: 0
 --- !u!114 &5879943437667816678
 MonoBehaviour:

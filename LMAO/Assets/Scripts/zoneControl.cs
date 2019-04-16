@@ -13,7 +13,7 @@ public class zoneControl : MonoBehaviour
     public float zoneMoveSpeed;
     public float markerMoveSpeed;
 
-    private float timeLeftBeforeZoneMove;
+    public float timeLeftBeforeZoneMove;
     private float timeLeftBeforeMarkerMove;
     public bool zoneReachedPos;
     public bool markerReachedPos = false;

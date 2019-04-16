@@ -16,6 +16,7 @@ public class BallUI : MonoBehaviourPun
     private Slider zoneSlider;
     private Slider ballSlider;
     private Slider markerSlider;
+    public Text zoneTimerText;
 
     //Gamle zone ting
     private GameObject lengthToMarkerUI;
@@ -54,6 +55,7 @@ public class BallUI : MonoBehaviourPun
         zoneSlider = zoneInfoObj.transform.Find("ZoneSlider").gameObject.GetComponent<Slider>();
         ballSlider = zoneInfoObj.transform.Find("BallSlider").gameObject.GetComponent<Slider>();
         markerSlider = zoneInfoObj.transform.Find("MarkerSlider").gameObject.GetComponent<Slider>();
+        zoneTimerText  = zoneInfoObj.transform.Find("zoneTimerText").gameObject.GetComponent<Text>();
 
         leaveButton = canvas.transform.Find("ButtonLeave").gameObject;
     }
@@ -114,6 +116,10 @@ public class BallUI : MonoBehaviourPun
 
         zoneSlider.value = Mathf.Clamp(lengthToZone, -sliderRange, sliderRange);
 
+
+        //Til timeren
+        int timeLeft = (int)zoneObj.GetComponent<zoneControl>().timeLeftBeforeZoneMove;
+        zoneTimerText.text = timeLeft.ToString();
 
     }
 
