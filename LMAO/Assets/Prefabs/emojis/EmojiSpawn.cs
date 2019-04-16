@@ -13,6 +13,8 @@ public class EmojiSpawn : MonoBehaviourPun
 
     public int curEmoji;
 
+    public Transform emojiSpawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,19 +31,19 @@ public class EmojiSpawn : MonoBehaviourPun
 
         if (Input.GetMouseButtonDown(1))
         {
-            photonView.RPC("SpawnEmoji", RpcTarget.All, 0);
+            photonView.RPC("SpawnEmoji", RpcTarget.All, GetComponent<BallLook>().emojiNumber);
         }
     }
 
     [PunRPC]
     public void SpawnEmoji(int selectedEmoji)
     {
-        //foreach (Transform child in transform)
-        //{
-        //    Destroy(child.gameObject);
-        //}
+        foreach (Transform child in emojiSpawnPoint.transform)
+        {
+            Destroy(child.gameObject);
+        }
 
-        Instantiate(emoji[selectedEmoji], transform);
+        Instantiate(emoji[selectedEmoji], emojiSpawnPoint);
     }
 
 }
