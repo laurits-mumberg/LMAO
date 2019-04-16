@@ -93,6 +93,7 @@ public class BallUI : MonoBehaviourPun
         if(zoneInfoObj.activeSelf == false)
         {
             zoneInfoObj.SetActive(true);
+            zoneInfoObj.GetComponent<Animator>().SetBool("ZoneIsHere",true);
         }
 
         float lengthToMarker = (zoneMarkerObj.transform.position.y - transform.position.y);
