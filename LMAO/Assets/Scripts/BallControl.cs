@@ -40,11 +40,17 @@ public class BallControl : MonoBehaviourPun {
     private bool shouldJumpIn = false;
     private bool hasJumpedIn;
 
+    //screenshakevariabler
+    private ScreenShake screenShake;
+    public float shakeDurration = 0.1f;
+    public float shakeMagnitude = 1.0f;
+
     private void Awake()
     {
         if (photonView.IsMine)
         {
             photonView.RPC("DisableRenderer", RpcTarget.All);
+            screenShake = Camera.main.GetComponent<ScreenShake>();
         }
 
     }
@@ -170,6 +176,7 @@ public class BallControl : MonoBehaviourPun {
                     rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
                     //isMoving = true;
                     isShooting = false;
+                    StartCoroutine(screenShake.Shake(shakeDurration, shakeMagnitude));
                 }
                 Cursor.lockState = CursorLockMode.Locked;
             }
