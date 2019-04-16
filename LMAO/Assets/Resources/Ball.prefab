@@ -351,6 +351,7 @@ MonoBehaviour:
   cancelRange: 0
   vectorToShoot: {x: 0, y: 0}
   isShooting: 0
+  isDisabled: 0
   tickRate: 0.1
   dmgperTickInZone: 1
 --- !u!58 &4179854736127318411
@@ -432,16 +433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a081ccea5e2d67749815e8f831c0bfce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  gameManagerObj: {fileID: 0}
-  zoneObj: {fileID: 0}
-  markerUpArrow: {fileID: 0}
-  markerDownArrow: {fileID: 0}
   sliderRange: 20
-  zoneInfoObj: {fileID: 0}
-  zoneSlider: {fileID: 0}
-  ballSlider: {fileID: 0}
-  markerSlider: {fileID: 0}
+  isInMenu: 0
 --- !u!114 &5879943437667816678
 MonoBehaviour:
   m_ObjectHideFlags: 0
