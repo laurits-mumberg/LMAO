@@ -132,7 +132,6 @@ public class BallUI : MonoBehaviourPun
             }
             else
             {
-                print("her");
                 //Luk "menu"
                 GetComponent<BallControl>().isDisabled = false;
                 GetComponent<BallControl>().isShooting = false;
