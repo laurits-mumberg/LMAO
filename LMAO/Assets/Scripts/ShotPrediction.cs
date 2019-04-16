@@ -39,7 +39,6 @@ public class ShotPrediction : MonoBehaviour
         }
         else if (!GetComponent<BallControl>().isShooting || GetComponent<BallControl>().cancelRange)
         {
-            print(GetComponent<BallControl>().cancelRange);
             HideDots();
         }
 

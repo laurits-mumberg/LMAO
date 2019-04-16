@@ -44,6 +44,7 @@ public class BallControl : MonoBehaviourPun {
     private ScreenShake screenShake;
     public float shakeDurration = 0.1f;
     public float shakeMagnitude = 1.0f;
+    public float shakeMinMagnitude = 0.1f;
 
     private void Awake()
     {
@@ -176,7 +177,12 @@ public class BallControl : MonoBehaviourPun {
                     rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
                     //isMoving = true;
                     isShooting = false;
-                    StartCoroutine(screenShake.Shake(shakeDurration, shakeMagnitude));
+                    float calMagnitude = (shakeMagnitude / (1 / rb2d.velocity.magnitude)) / 2;
+                    if (calMagnitude >= shakeMinMagnitude)
+                    {
+                        StartCoroutine(screenShake.Shake(shakeDurration, calMagnitude));
+                    }
+                    print("Shake Magnitude = " + calMagnitude);
                 }
                 Cursor.lockState = CursorLockMode.Locked;
             }
@@ -217,7 +223,15 @@ public class BallControl : MonoBehaviourPun {
             }
         }
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+        float calMagnitude = (shakeMagnitude / (1 / rb2d.velocity.magnitude)) / 2;
+        StartCoroutine(screenShake.Shake(shakeDurration, calMagnitude));
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         {
