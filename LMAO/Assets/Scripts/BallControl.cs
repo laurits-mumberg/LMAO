@@ -64,7 +64,7 @@ public class BallControl : MonoBehaviourPun {
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
-        health = (Health)FindObjectOfType(typeof(Health));
+        health = GetComponent<Health>();
         canMove = false;
     }
 
@@ -182,7 +182,6 @@ public class BallControl : MonoBehaviourPun {
             }
         }
 
-
         //Checker om man må skyde igen
         if (rb2d.velocity.magnitude < minSpeed)
         {
@@ -217,6 +216,7 @@ public class BallControl : MonoBehaviourPun {
             }
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!photonView.IsMine)
@@ -226,6 +226,7 @@ public class BallControl : MonoBehaviourPun {
         float calMagnitude = (shakeMagnitude / (1 / rb2d.velocity.magnitude)) / 2;
         StartCoroutine(screenShake.Shake(shakeDurration, calMagnitude));
     }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         {
@@ -240,9 +241,6 @@ public class BallControl : MonoBehaviourPun {
             }
         }
     }
-
-
-
 
     [PunRPC]
     void PlayerDie()
