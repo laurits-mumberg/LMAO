@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -537,36 +537,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 891972257}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &104471183
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 104471184}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &104471184
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104471183}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1793530752}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &116006115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400544, guid: 8cd0fc8f69ad6904bb20100c348c11a9,
@@ -1208,6 +1178,8 @@ MonoBehaviour:
   normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   lololMaterial: {fileID: 2100000, guid: b8e10c0af3ac55d4ba4a588f78ab4610, type: 2}
   hahaMaterial: {fileID: 2100000, guid: 25f12e535b692194f967541816acab45, type: 2}
+  curEmojiNumber: 0
+  curEmoji: []
 --- !u!114 &252346032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,6 +1769,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1793530751}
         m_MethodName: SpawnEmoji
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252346031}
+        m_MethodName: ChangeToNextEmoji
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4985,6 +4968,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 252346031}
+        m_MethodName: ChangeToNextEmoji
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1101438658
@@ -5334,6 +5328,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 252346031}
+        m_MethodName: ChangeToNextEmoji
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1793530751}
         m_MethodName: SpawnEmoji
         m_Mode: 3
@@ -5471,6 +5476,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1793530751}
         m_MethodName: SpawnEmoji
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252346031}
+        m_MethodName: ChangeToNextEmoji
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6758,7 +6774,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5540521
+        value: 0.5021027
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -6767,7 +6783,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.5405426
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -7463,7 +7479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1620371499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7569,6 +7585,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1793530751}
         m_MethodName: SpawnEmoji
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252346031}
+        m_MethodName: ChangeToNextEmoji
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8350,7 +8377,6 @@ MonoBehaviour:
   - {fileID: 605138866640749995, guid: 75734dc830c24314e81ad1724a30de45, type: 3}
   - {fileID: 5937401624601673360, guid: d7555cd31fcd78c458c7ba7fd4d8feae, type: 3}
   - {fileID: 7630454670744434188, guid: de55e671837e1904faff9b1584730f6a, type: 3}
-  EmojiCooldown: 3
 --- !u!4 &1793530752
 Transform:
   m_ObjectHideFlags: 0
@@ -8361,8 +8387,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 112, y: -28.000023, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 0}
-  m_Children:
-  - {fileID: 104471184}
+  m_Children: []
   m_Father: {fileID: 252346029}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

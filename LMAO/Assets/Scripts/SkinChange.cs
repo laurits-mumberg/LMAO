@@ -9,10 +9,10 @@ using UnityEngine.Animations;
 public class SkinChange : MonoBehaviourPunCallbacks
 {
     public GameObject prewiewBall;
-    public BallLook.BallColor yourBallColor;
     private Hashtable playerInfoTable = new Hashtable();
     Animator animator;
 
+    public BallLook.BallColor yourBallColor;
     public BallLook.BallTrail yourTrailColor;
 
     Gradient gradient;
@@ -25,6 +25,9 @@ public class SkinChange : MonoBehaviourPunCallbacks
     public Material lololMaterial;
     public Material hahaMaterial;
 
+    public int curEmojiNumber;
+    public GameObject[] curEmoji;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -34,7 +37,7 @@ public class SkinChange : MonoBehaviourPunCallbacks
     public void SetBallColor()
     {
         int color = animator.GetInteger("ColorChange");
-        print(color);
+
         switch (color)
         {
             case 1:
@@ -62,7 +65,6 @@ public class SkinChange : MonoBehaviourPunCallbacks
     public void SetTrailColor()
     {
         int trail = animator.GetInteger("TrailChange");
-        print(trail + " trail");
         switch (trail)
         {
             case 1:
@@ -116,6 +118,11 @@ public class SkinChange : MonoBehaviourPunCallbacks
     public void ChangeToNextTrail(int nextTrailInt)
     {
         animator.SetInteger("TrailChange", nextTrailInt);
+    }
+
+    public void ChangeToNextEmoji(int nextEmojiInt)
+    {
+        animator.SetInteger("EmojiChange", nextEmojiInt);
     }
 
     public void SubmitPlayerInfo()

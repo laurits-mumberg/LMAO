@@ -6,18 +6,23 @@ public class EmojiSpawn : MonoBehaviour
 {
 
     public GameObject[] emoji;
-    public float EmojiCooldown;
-    private float EmojiTimer;
+
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            int curEmoji = animator.GetInteger("EmojiChange");
+            SpawnEmoji(curEmoji);
+        }
     }
 
     public void SpawnEmoji(int selectedEmoji)
@@ -29,4 +34,5 @@ public class EmojiSpawn : MonoBehaviour
 
         Instantiate(emoji[selectedEmoji], transform);
     }
+
 }
