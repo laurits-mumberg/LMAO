@@ -41,6 +41,8 @@ public class Health : MonoBehaviourPun
         {
             print(health);
             photonView.RPC("PlayerDie", RpcTarget.All);
+
+            GetComponent<BallUI>().OpenMenu();
         }
     }
 
