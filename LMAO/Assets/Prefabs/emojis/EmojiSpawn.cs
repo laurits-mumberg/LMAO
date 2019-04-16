@@ -33,7 +33,7 @@ public class EmojiSpawn : MonoBehaviourPun
         }
     }
 
-
+    [PunRPC]
     public void SpawnEmoji(int selectedEmoji)
     {
         foreach (Transform child in transform)
