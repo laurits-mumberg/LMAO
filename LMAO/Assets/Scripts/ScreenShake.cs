@@ -9,7 +9,6 @@ public class ScreenShake : MonoBehaviourPun
     public IEnumerator Shake(float duration, float magnitude)
     {
         Vector3 originalPos = transform.position;
-        print(originalPos);
 
         float elapsed = 0.0f;
 

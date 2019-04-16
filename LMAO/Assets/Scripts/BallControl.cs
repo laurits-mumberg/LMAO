@@ -177,12 +177,6 @@ public class BallControl : MonoBehaviourPun {
                     rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
                     //isMoving = true;
                     isShooting = false;
-                    float calMagnitude = (shakeMagnitude / (1 / rb2d.velocity.magnitude)) / 2;
-                    if (calMagnitude >= shakeMinMagnitude)
-                    {
-                        StartCoroutine(screenShake.Shake(shakeDurration, calMagnitude));
-                    }
-                    print("Shake Magnitude = " + calMagnitude);
                 }
                 Cursor.lockState = CursorLockMode.Locked;
             }
