@@ -14,6 +14,27 @@ public class SoundHandler : MonoBehaviour
         SoundHandlerInstanceCheck();
     }
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        soundHandler = GetComponent<SoundHandler>();
+    }
+
+    public void PlaySoundFX(AudioSource source, AudioClip sound)
+    {
+        source.PlayOneShot(sound);
+    }
+
+    public void PlayMusic(AudioClip sound)
+    {
+        audioSource.Play();
+    }
+
+    public void StopSoundFX(AudioSource source)
+    {
+        source.Stop();
+    }
+
     private void SoundHandlerInstanceCheck()
     {
         if (!created)
@@ -25,21 +46,5 @@ public class SoundHandler : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-
-    private void Start()
-    {
-        audioSource = this.GetComponent<AudioSource>();
-        soundHandler = this.GetComponent<SoundHandler>();
-    }
-
-    public void PlaySoundFX(AudioClip sound)
-    {
-        audioSource.PlayOneShot(sound);
-    }
-
-    public void PlayMusic(AudioClip sound)
-    {
-        audioSource.Play();
     }
 }

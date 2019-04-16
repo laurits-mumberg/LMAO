@@ -46,6 +46,10 @@ public class BallControl : MonoBehaviourPun {
     public float shakeMagnitude = 1.0f;
     public float shakeMinMagnitude = 0.1f;
 
+    //lyd
+    private SoundDB soundDB;
+    private AudioSource audioSource;
+
     private void Awake()
     {
         if (photonView.IsMine)
@@ -64,6 +68,8 @@ public class BallControl : MonoBehaviourPun {
         rb2d = GetComponent<Rigidbody2D>();
         gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
+        soundDB = GetComponent<SoundDB>();
+        audioSource = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         canMove = false;
     }
@@ -175,6 +181,7 @@ public class BallControl : MonoBehaviourPun {
                 else
                 {
                     rb2d.AddForce(vectorToShoot, ForceMode2D.Impulse);
+                    SoundHandler.soundHandler.PlaySoundFX(audioSource, soundDB.soundFX[0]);
                     //isMoving = true;
                     isShooting = false;
                 }
@@ -194,6 +201,20 @@ public class BallControl : MonoBehaviourPun {
             isShooting = false;
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        if(collision.tag == "zone")
+        {
+            SoundHandler.soundHandler.PlaySoundFX(audioSource, soundDB.soundFX[1]);
+            SoundHandler.soundHandler.PlaySoundFX(audioSource, soundDB.soundFX[2]);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -237,6 +258,7 @@ public class BallControl : MonoBehaviourPun {
 
             if (collision.tag == "zone")
             {
+                SoundHandler.soundHandler.StopSoundFX(audioSource);
                 timeSinceDmgTaken = 0;
             }
         }
