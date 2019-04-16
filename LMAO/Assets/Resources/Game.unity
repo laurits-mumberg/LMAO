@@ -1136,6 +1136,7 @@ GameObject:
   - component: {fileID: 930356849}
   - component: {fileID: 930356851}
   - component: {fileID: 930356850}
+  - component: {fileID: 930356852}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -1175,7 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1204,6 +1205,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930356848}
   m_CullTransparentMesh: 0
+--- !u!114 &930356852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930356848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &944381911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1651,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2483125016680689262, guid: 43d401a72e63aa44ea908e0baf9aaf2f,
+        type: 3}
+      propertyPath: m_Name
+      value: BaneBaggrund
+      objectReference: {fileID: 0}
     - target: {fileID: 8439114932537088559, guid: 43d401a72e63aa44ea908e0baf9aaf2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1689,11 +1710,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2483125016680689262, guid: 43d401a72e63aa44ea908e0baf9aaf2f,
-        type: 3}
-      propertyPath: m_Name
-      value: BaneBaggrund
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d401a72e63aa44ea908e0baf9aaf2f, type: 3}
