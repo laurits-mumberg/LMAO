@@ -67,7 +67,7 @@ public class BallUI : MonoBehaviourPun
         //UpdateMarkerUI(); <-- Outdated
         UpdateMarkerUI2();
 
-        OpenMenu();
+        MenuCheck();
     }
 
     void UpdateMarkerUI2()
@@ -116,35 +116,45 @@ public class BallUI : MonoBehaviourPun
 
     }
 
-    void OpenMenu()
+    void MenuCheck()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isInMenu)
             {
-                //Åben "menu" lol bare en kanp
-                GetComponent<BallControl>().isDisabled = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                leaveButton.SetActive(true);
-
-                isInMenu = true;
+                OpenMenu();
             }
             else
             {
-                //Luk "menu"
-                GetComponent<BallControl>().isDisabled = false;
-                GetComponent<BallControl>().isShooting = false;
-                GetComponent<ShotPrediction>().HideDots();
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                leaveButton.SetActive(false);
-
-                isInMenu = false;
+                CloseMenu();
             }
 
 
         }
+    }
+
+    public void OpenMenu()
+    {
+        //Åben "menu" lol bare en kanp
+        GetComponent<BallControl>().isDisabled = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        leaveButton.SetActive(true);
+
+        isInMenu = true;
+    }
+
+    public void CloseMenu()
+    {
+        //Luk "menu"
+        GetComponent<BallControl>().isDisabled = false;
+        GetComponent<BallControl>().isShooting = false;
+        GetComponent<ShotPrediction>().HideDots();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        leaveButton.SetActive(false);
+
+        isInMenu = false;
     }
 
 

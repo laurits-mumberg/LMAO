@@ -275,11 +275,11 @@ public class BallControl : MonoBehaviourPun {
         }
         gameManagerObj.GetComponent<GameManagerScript>().playersLeft--;
 
-        if (photonView.IsMine)
-        {
-            GameObject leaveButton = canvas.transform.Find("ButtonLeave").gameObject;
-            leaveButton.SetActive(true);
-        }
+        //if (photonView.IsMine)
+        //{
+        //    GameObject leaveButton = canvas.transform.Find("ButtonLeave").gameObject;
+        //    leaveButton.SetActive(true);
+        //}
 
     }
 
