@@ -154,8 +154,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5440511318447922570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.63007, z: 0}
-  m_LocalScale: {x: 1, y: 4.739171, z: 1}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 3170053783241756094}
   m_RootOrder: 3
@@ -661,7 +661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6713827346446527009}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.75, y: 3.25, z: 0}
+  m_LocalPosition: {x: -2.75, y: -3, z: 0}
   m_LocalScale: {x: 4.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3170053783241756094}
@@ -936,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 3861292308363874263, guid: 624443562c130694997fe58e067600d1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3861292308363874263, guid: 624443562c130694997fe58e067600d1,
         type: 3}
@@ -988,6 +988,16 @@ PrefabInstance:
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6713827346446527011}
+    - target: {fileID: 7631088130717586111, guid: 624443562c130694997fe58e067600d1,
+        type: 3}
+      propertyPath: delayTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7631088130717586111, guid: 624443562c130694997fe58e067600d1,
+        type: 3}
+      propertyPath: delayActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624443562c130694997fe58e067600d1, type: 3}
 --- !u!4 &1925865639137717083 stripped
