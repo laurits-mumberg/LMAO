@@ -103,7 +103,6 @@ public class BallUI : MonoBehaviourPun
 
         if(sliderRange < lengthToMarker || lengthToMarker < -sliderRange)
         {
-            print("HEEER REEEE");
             markerSlider.transform.gameObject.SetActive(false);
         }
         else
@@ -119,12 +118,12 @@ public class BallUI : MonoBehaviourPun
 
     void OpenMenu()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isInMenu)
             {
                 //Åben "menu" lol bare en kanp
-                GetComponent<BallControl>().canMove = false;
+                GetComponent<BallControl>().isDisabled = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 leaveButton.SetActive(true);
@@ -135,8 +134,9 @@ public class BallUI : MonoBehaviourPun
             {
                 print("her");
                 //Luk "menu"
-                GetComponent<BallControl>().canMove = true;
-                GetComponent<BallControl>().cancelRange = true;
+                GetComponent<BallControl>().isDisabled = false;
+                GetComponent<BallControl>().isShooting = false;
+                GetComponent<ShotPrediction>().HideDots();
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 leaveButton.SetActive(false);

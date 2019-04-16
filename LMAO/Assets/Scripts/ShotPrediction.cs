@@ -39,6 +39,7 @@ public class ShotPrediction : MonoBehaviour
         }
         else if (!GetComponent<BallControl>().isShooting || GetComponent<BallControl>().cancelRange)
         {
+            print(GetComponent<BallControl>().cancelRange);
             HideDots();
         }
 
@@ -50,7 +51,7 @@ public class ShotPrediction : MonoBehaviour
 
     }
 
-    void ShowDots()
+    public void ShowDots()
     {
         showingDots = true;
         foreach (GameObject dot in AllDots)
@@ -59,7 +60,7 @@ public class ShotPrediction : MonoBehaviour
         }
     }
 
-    void HideDots()
+    public void HideDots()
     {
         showingDots = false;
         foreach (GameObject dot in AllDots)

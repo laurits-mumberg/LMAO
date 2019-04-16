@@ -28,6 +28,7 @@ public class BallControl : MonoBehaviourPun {
     private Rigidbody2D rb2d;
     private bool isMoving = false;
     public bool isShooting = false;
+    public bool isDisabled = false;
 
     //stats
     //public float health = 100;
@@ -119,6 +120,11 @@ public class BallControl : MonoBehaviourPun {
     private void BallShooting()
     {
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            return;
+        }
+
+        if (isDisabled)
         {
             return;
         }
