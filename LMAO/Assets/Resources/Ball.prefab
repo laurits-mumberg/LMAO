@@ -355,9 +355,9 @@ MonoBehaviour:
   isDisabled: 0
   tickRate: 0.1
   dmgperTickInZone: 1
-  shakeDurration: 0.1
-  shakeMagnitude: 0.1
-  shakeMinMagnitude: 0.1
+  shakeDurration: 0.025
+  shakeMagnitude: 0.02
+  shakeMinMagnitude: 0.01
 --- !u!58 &4179854736127318411
 CircleCollider2D:
   m_ObjectHideFlags: 0

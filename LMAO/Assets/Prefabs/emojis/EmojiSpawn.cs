@@ -36,10 +36,10 @@ public class EmojiSpawn : MonoBehaviourPun
     [PunRPC]
     public void SpawnEmoji(int selectedEmoji)
     {
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
+        //foreach (Transform child in transform)
+        //{
+        //    Destroy(child.gameObject);
+        //}
 
         Instantiate(emoji[selectedEmoji], transform);
     }
