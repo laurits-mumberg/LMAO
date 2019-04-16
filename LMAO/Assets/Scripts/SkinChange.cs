@@ -14,6 +14,7 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
     public BallLook.BallColor yourBallColor;
     public BallLook.BallTrail yourTrailColor;
+    public BallLook.BallEmoji yourEmoji;
 
     Gradient gradient;
     GradientColorKey[] colorKey;
@@ -106,6 +107,12 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
         }
         animator.SetInteger("TrailChange", 0);
+
+    }
+
+    public void SetEmoji()
+    {
+
     }
 
 
@@ -122,7 +129,7 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
     public void ChangeToNextEmoji(int nextEmojiInt)
     {
-        animator.SetInteger("EmojiChange", nextEmojiInt);
+
     }
 
     public void SubmitPlayerInfo()

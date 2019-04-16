@@ -9,6 +9,7 @@ public class BallLook : MonoBehaviourPunCallbacks
 
     public enum BallColor {White, Red, Green, Blue}
     public enum BallTrail {Fire, Water, Lolol, haha}
+    public enum BallEmoji {Emoji}
 
     //[0]= normalMaterial, [1]= lololMaterial, [2]= hahaMaterial
     public Material[] curMaterial;
@@ -20,7 +21,6 @@ public class BallLook : MonoBehaviourPunCallbacks
     public TrailRenderer tr;
 
     public int curEmojiNumber;
-    public GameObject curEmoji;
 
     // Start is called before the first frame update
     void Start()
