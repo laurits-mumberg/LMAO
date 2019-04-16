@@ -9,7 +9,7 @@ public class BallLook : MonoBehaviourPunCallbacks
 
     public enum BallColor {White, Red, Green, Blue}
     public enum BallTrail {Fire, Water, Lolol, haha}
-    public enum BallEmoji {Emoji}
+    public int emojiNumber;
 
     //[0]= normalMaterial, [1]= lololMaterial, [2]= hahaMaterial
     public Material[] curMaterial;
@@ -20,13 +20,12 @@ public class BallLook : MonoBehaviourPunCallbacks
 
     public TrailRenderer tr;
 
-    public int curEmojiNumber;
-
     // Start is called before the first frame update
     void Start()
     {
         SetballColor();
         SetTrailColor();
+        SetEmoji();
     }
 
     // Update is called once per frame
@@ -97,7 +96,7 @@ public class BallLook : MonoBehaviourPunCallbacks
 
     public void SetEmoji()
     {
-
+        emojiNumber = (int)photonView.Owner.CustomProperties["ballEmoji"];
     }
 
 }

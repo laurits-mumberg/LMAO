@@ -14,7 +14,6 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
     public BallLook.BallColor yourBallColor;
     public BallLook.BallTrail yourTrailColor;
-    public BallLook.BallEmoji yourEmoji;
 
     Gradient gradient;
     GradientColorKey[] colorKey;
@@ -26,8 +25,7 @@ public class SkinChange : MonoBehaviourPunCallbacks
     public Material lololMaterial;
     public Material hahaMaterial;
 
-    public int curEmojiNumber;
-    public GameObject[] curEmoji;
+    public int emojiNumber;
 
     private void Start()
     {
@@ -110,12 +108,6 @@ public class SkinChange : MonoBehaviourPunCallbacks
 
     }
 
-    public void SetEmoji()
-    {
-
-    }
-
-
     //Slet senere
     public void ChangeToNextColor(int nextColorInt)
     {
@@ -127,15 +119,16 @@ public class SkinChange : MonoBehaviourPunCallbacks
         animator.SetInteger("TrailChange", nextTrailInt);
     }
 
-    public void ChangeToNextEmoji(int nextEmojiInt)
+    public void ChangeToNextEmoji(int curEmoji)
     {
-
+        emojiNumber = curEmoji;
     }
 
     public void SubmitPlayerInfo()
     {
         playerInfoTable.Add("ballcolor", yourBallColor);
         playerInfoTable.Add("ballTrail", yourTrailColor);
+        playerInfoTable.Add("ballEmoji", emojiNumber);
         PhotonNetwork.LocalPlayer.SetCustomProperties(playerInfoTable);
     }
 }
