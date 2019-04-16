@@ -31,6 +31,8 @@ public class zoneControl : MonoBehaviour
         nextPos = markerObject.transform.position;
         lastPos = nextPos;
         zoneOffset = transform.position.y + (transform.position.y - markerObject.transform.position.y);
+        setNextMarker();
+        timeLeftBeforeZoneMove = timeBetweenZoneMoves;
     }
 
     // Update is called once per frame

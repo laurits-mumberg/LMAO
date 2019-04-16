@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1327,10 +1327,10 @@ MonoBehaviour:
   markerObject: {fileID: 2071660798}
   timeBetweenZoneMoves: 30
   timeBetweenMarkerMoves: 5
-  standardMoveLength: 25
-  lengthIncrease: 1
-  zoneMoveSpeed: 1
-  markerMoveSpeed: 1
+  standardMoveLength: 40
+  lengthIncrease: 10
+  zoneMoveSpeed: 10
+  markerMoveSpeed: 10
   timeLeftBeforeZoneMove: 0
   zoneReachedPos: 0
   markerReachedPos: 0
@@ -1540,8 +1540,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 345198968}
   m_Direction: 2
-  m_MinValue: -20
-  m_MaxValue: 20
+  m_MinValue: -50
+  m_MaxValue: 50
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1635,11 +1635,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2483125016680689262, guid: 43d401a72e63aa44ea908e0baf9aaf2f,
-        type: 3}
-      propertyPath: m_Name
-      value: BaneBaggrund
-      objectReference: {fileID: 0}
     - target: {fileID: 8439114932537088559, guid: 43d401a72e63aa44ea908e0baf9aaf2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1694,6 +1689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483125016680689262, guid: 43d401a72e63aa44ea908e0baf9aaf2f,
+        type: 3}
+      propertyPath: m_Name
+      value: BaneBaggrund
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d401a72e63aa44ea908e0baf9aaf2f, type: 3}
@@ -2372,8 +2372,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 2058068685}
   m_Direction: 2
-  m_MinValue: -20
-  m_MaxValue: 20
+  m_MinValue: -50
+  m_MaxValue: 50
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2652,8 +2652,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 25091486}
   m_HandleRect: {fileID: 120772639}
   m_Direction: 2
-  m_MinValue: -20
-  m_MaxValue: 20
+  m_MinValue: -50
+  m_MaxValue: 50
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

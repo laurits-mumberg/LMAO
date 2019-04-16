@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a081ccea5e2d67749815e8f831c0bfce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderRange: 20
+  sliderRange: 50
   zoneTimerText: {fileID: 0}
   isInMenu: 0
 --- !u!114 &5879943437667816678

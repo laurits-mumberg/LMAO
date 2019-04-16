@@ -118,7 +118,7 @@ public class BallUI : MonoBehaviourPun
 
 
         //Til timeren
-        int timeLeft = (int)zoneObj.GetComponent<zoneControl>().timeLeftBeforeZoneMove;
+        int timeLeft = Mathf.Clamp((int)zoneObj.GetComponent<zoneControl>().timeLeftBeforeZoneMove, 0,9999999);
         zoneTimerText.text = timeLeft.ToString();
 
     }
