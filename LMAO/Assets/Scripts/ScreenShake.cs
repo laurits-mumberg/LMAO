@@ -8,7 +8,8 @@ public class ScreenShake : MonoBehaviourPun
 {
     public IEnumerator Shake(float duration, float magnitude)
     {
-        Vector3 originalPos = transform.localPosition;
+        Vector3 originalPos = transform.position;
+        print(originalPos);
 
         float elapsed = 0.0f;
 
@@ -17,13 +18,13 @@ public class ScreenShake : MonoBehaviourPun
             float x = Random.Range(-1f, 1f)*magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
-            transform.localPosition = new Vector3(x, y, originalPos.z);
+            transform.position = new Vector3(transform.position.x + x, transform.position.y + y, originalPos.z);
 
             elapsed += Time.deltaTime;
 
             yield return null;
         }
 
-        transform.localPosition = originalPos;
+        //transform.position = originalPos;
     }
 }

@@ -99,7 +99,6 @@ public class BallUI : MonoBehaviourPun
 
         float lengthToZone = zoneObj.transform.localScale.y + zoneObj.GetComponent<zoneControl>().zoneOffset - transform.position.y;
 
-        print("Længde imellem længden til zonen og til markeren" + (lengthToMarker - lengthToZone));
         
 
         if(sliderRange < lengthToMarker || lengthToMarker < -sliderRange)
@@ -133,7 +132,6 @@ public class BallUI : MonoBehaviourPun
             }
             else
             {
-                print("her");
                 //Luk "menu"
                 GetComponent<BallControl>().isDisabled = false;
                 GetComponent<BallControl>().isShooting = false;
