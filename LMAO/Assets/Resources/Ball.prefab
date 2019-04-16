@@ -403,12 +403,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4411d894c6a37c74a951b72840d4cec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emojiNumber: 0
   curMaterial:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: b8e10c0af3ac55d4ba4a588f78ab4610, type: 2}
   - {fileID: 2100000, guid: 25f12e535b692194f967541816acab45, type: 2}
   tr: {fileID: 7291411306282422163}
-  curEmojiNumber: 0
 --- !u!95 &8285352228108488612
 Animator:
   serializedVersion: 3

@@ -1178,8 +1178,7 @@ MonoBehaviour:
   normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   lololMaterial: {fileID: 2100000, guid: b8e10c0af3ac55d4ba4a588f78ab4610, type: 2}
   hahaMaterial: {fileID: 2100000, guid: 25f12e535b692194f967541816acab45, type: 2}
-  curEmojiNumber: 0
-  curEmoji: []
+  emojiNumber: 0
 --- !u!114 &252346032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,17 +1766,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793530751}
-        m_MethodName: SpawnEmoji
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 252346031}
         m_MethodName: ChangeToNextEmoji
         m_Mode: 3
@@ -4957,17 +4945,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793530751}
-        m_MethodName: SpawnEmoji
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 252346031}
         m_MethodName: ChangeToNextEmoji
         m_Mode: 3
@@ -5339,17 +5316,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1793530751}
-        m_MethodName: SpawnEmoji
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1183022029
@@ -5474,17 +5440,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793530751}
-        m_MethodName: SpawnEmoji
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 252346031}
         m_MethodName: ChangeToNextEmoji
         m_Mode: 3
@@ -7074,7 +7029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1525571844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7479,7 +7434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1620371499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7583,17 +7538,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793530751}
-        m_MethodName: SpawnEmoji
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 252346031}
         m_MethodName: ChangeToNextEmoji
         m_Mode: 3
@@ -8377,6 +8321,8 @@ MonoBehaviour:
   - {fileID: 605138866640749995, guid: 75734dc830c24314e81ad1724a30de45, type: 3}
   - {fileID: 5937401624601673360, guid: d7555cd31fcd78c458c7ba7fd4d8feae, type: 3}
   - {fileID: 7630454670744434188, guid: de55e671837e1904faff9b1584730f6a, type: 3}
+  curEmoji: 0
+  emojiSpawnPoint: {fileID: 0}
 --- !u!4 &1793530752
 Transform:
   m_ObjectHideFlags: 0
@@ -8463,7 +8409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1807015768
 RectTransform:
   m_ObjectHideFlags: 0
