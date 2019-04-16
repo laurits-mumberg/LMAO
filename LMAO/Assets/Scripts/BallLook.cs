@@ -10,9 +10,8 @@ public class BallLook : MonoBehaviourPunCallbacks
     public enum BallColor {White, Red, Green, Blue}
     public enum BallTrail {Fire, Water, Lolol, haha}
 
-    public Material normalMaterial;
-    public Material lololMaterial;
-    public Material hahaMaterial;
+    //[0]= normalMaterial, [1]= lololMaterial, [2]= hahaMaterial
+    public Material[] curMaterial;
 
     Gradient gradient;
     GradientColorKey[] colorKey;
@@ -20,6 +19,8 @@ public class BallLook : MonoBehaviourPunCallbacks
 
     public TrailRenderer tr;
 
+    public int curEmojiNumber;
+    public GameObject curEmoji;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,6 @@ public class BallLook : MonoBehaviourPunCallbacks
     public void SetballColor()
     {
         BallColor thisBallsColor = (BallColor)photonView.Owner.CustomProperties["ballcolor"];
-        print(thisBallsColor);
         switch (thisBallsColor)
         {
             case BallColor.Red:
@@ -62,37 +62,42 @@ public class BallLook : MonoBehaviourPunCallbacks
     public void SetTrailColor()
     {
         BallTrail thisBallsTrail = (BallTrail)photonView.Owner.CustomProperties["ballTrail"];
-        print(thisBallsTrail);
         switch (thisBallsTrail)
         {
             case BallTrail.Fire:
                 tr.startColor = Color.yellow;
                 tr.endColor = Color.red;
-                tr.material = normalMaterial;
+                tr.material = curMaterial[0];
                 tr.startWidth = 0.25f;
                 tr.endWidth = 0.0f;
                 break;
             case BallTrail.Water:
                 tr.startColor = Color.blue;
                 tr.endColor = Color.white;
-                tr.material = normalMaterial;
+                tr.material = curMaterial[0];
                 tr.startWidth = 0.25f;
                 tr.endWidth = 0.0f;
                 break;
             case BallTrail.Lolol:
                 tr.startColor = Color.white;
                 tr.endColor = Color.white;
-                tr.material = lololMaterial;
+                tr.material = curMaterial[1];
                 tr.startWidth = 0.25f;
                 tr.endWidth = 0.25f;
                 break;
             case BallTrail.haha:
                 tr.startColor = Color.white;
                 tr.endColor = Color.white;
-                tr.material = hahaMaterial;
+                tr.material = curMaterial[2];
                 tr.startWidth = 0.25f;
                 tr.endWidth = 0.25f;
                 break;
         }
     }
+
+    public void SetEmoji()
+    {
+
+    }
+
 }
