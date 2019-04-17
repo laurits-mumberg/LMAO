@@ -67,45 +67,35 @@ public class SkinChange : MonoBehaviourPunCallbacks
         switch (trail)
         {
             case 1:
-                tr.startColor = Color.yellow;
-                tr.endColor = Color.red;
-                yourTrailColor = BallLook.BallTrail.Fire;
-                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
-                tr.material = normalMaterial;
-                tr.startWidth = 0.5f;
-                tr.endWidth = 0.0f;
+                TrailSettings(Color.yellow, Color.red, BallLook.BallTrail.Fire, normalMaterial, 0.5f, 0.0f);
                 break;
             case 2:
-                tr.startColor = Color.blue;
-                tr.endColor = Color.white;
-                yourTrailColor = BallLook.BallTrail.Water;
-                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
-                tr.material = normalMaterial;
-                tr.startWidth = 0.5f;
-                tr.endWidth = 0.0f;
+                TrailSettings(Color.blue, Color.cyan, BallLook.BallTrail.Water, normalMaterial, 0.5f, 0.0f);
                 break;
             case 3:
-                tr.startColor = Color.white;
-                tr.endColor = Color.white;
-                yourTrailColor = BallLook.BallTrail.Lolol;
-                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
-                tr.material = lololMaterial;
-                tr.startWidth = 0.5f;
-                tr.endWidth = 0.5f;
+                TrailSettings(Color.white, Color.white, BallLook.BallTrail.Lolol, lololMaterial, 0.5f, 0.5f);
                 break;
             case 4:
-                tr.startColor = Color.white;
-                tr.endColor = Color.white;
-                yourTrailColor = BallLook.BallTrail.haha;
-                prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
-                tr.material = hahaMaterial;
-                tr.startWidth = 0.5f;
-                tr.endWidth = 0.5f;
+                TrailSettings(Color.white, Color.white, BallLook.BallTrail.haha, hahaMaterial, 0.5f, 0.5f);
+                break;
+            case 5:
+                TrailSettings(Color.green,Color.yellow,BallLook.BallTrail.Cool, normalMaterial, 0.5f, 0.0f);
                 break;
 
         }
         animator.SetInteger("TrailChange", 0);
 
+    }
+
+    private void TrailSettings(Color startCl, Color endCl, BallLook.BallTrail trailCl, Material mat, float startWdt, float endWdt)
+    {
+        tr.startColor = startCl;
+        tr.endColor = endCl;
+        yourTrailColor = trailCl;
+        prewiewBall.GetComponentInChildren<TrailRenderer>().colorGradient = tr.colorGradient;
+        tr.material = mat;
+        tr.startWidth = startWdt;
+        tr.endWidth = endWdt;
     }
 
     //Slet senere
