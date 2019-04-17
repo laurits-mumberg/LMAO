@@ -8,7 +8,7 @@ public class BallLook : MonoBehaviourPunCallbacks
 {
 
     public enum BallColor {White, Red, Green, Blue}
-    public enum BallTrail {Fire, Water, Lolol, haha}
+    public enum BallTrail {Fire, Water, Cool, Lolol, haha, magenta}
     public int emojiNumber;
 
     //[0]= normalMaterial, [1]= lololMaterial, [2]= hahaMaterial
@@ -64,34 +64,33 @@ public class BallLook : MonoBehaviourPunCallbacks
         switch (thisBallsTrail)
         {
             case BallTrail.Fire:
-                tr.startColor = Color.yellow;
-                tr.endColor = Color.red;
-                tr.material = curMaterial[0];
-                tr.startWidth = 0.25f;
-                tr.endWidth = 0.0f;
+                TrailSettings(Color.yellow, Color.red, curMaterial[0], 0.25f, 0.0f);
                 break;
             case BallTrail.Water:
-                tr.startColor = Color.blue;
-                tr.endColor = Color.white;
-                tr.material = curMaterial[0];
-                tr.startWidth = 0.25f;
-                tr.endWidth = 0.0f;
+                TrailSettings(Color.blue, Color.cyan, curMaterial[0], 0.25f, 0.0f);
                 break;
             case BallTrail.Lolol:
-                tr.startColor = Color.white;
-                tr.endColor = Color.white;
-                tr.material = curMaterial[1];
-                tr.startWidth = 0.25f;
-                tr.endWidth = 0.25f;
+                TrailSettings(Color.white, Color.white, curMaterial[1], 0.25f, 0.25f);
                 break;
             case BallTrail.haha:
-                tr.startColor = Color.white;
-                tr.endColor = Color.white;
-                tr.material = curMaterial[2];
-                tr.startWidth = 0.25f;
-                tr.endWidth = 0.25f;
+                TrailSettings(Color.white, Color.white, curMaterial[2], 0.25f, 0.25f);
+                break;
+            case BallTrail.Cool:
+                TrailSettings(Color.green,Color.yellow,curMaterial[0],0.25f,0.0f);
+                break;
+            case BallTrail.magenta:
+                TrailSettings(Color.magenta, Color.white, curMaterial[0], 0.25f, 0.0f);
                 break;
         }
+    }
+
+    private void TrailSettings(Color startCl, Color endCl, Material mat, float startWdt, float endWdt)
+    {
+        tr.startColor = startCl;
+        tr.endColor = endCl;
+        tr.material = mat;
+        tr.startWidth = startWdt;
+        tr.endWidth = endWdt;
     }
 
     public void SetEmoji()
