@@ -498,7 +498,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f81b931ee055646499feacb7c78e5500, type: 3}
   - {fileID: 8300000, guid: 88312898eb1aad6448d950cfccb1878a, type: 3}
   - {fileID: 8300000, guid: ca4ac2b21c95ff843abb94242280ddde, type: 3}
-  - {fileID: 8300000, guid: 9b0268e0659015147a50fd03f865e0af, type: 3}
   menuSounds: []
 --- !u!82 &5153182660803534783
 AudioSource:

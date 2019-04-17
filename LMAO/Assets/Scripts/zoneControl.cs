@@ -21,10 +21,9 @@ public class zoneControl : MonoBehaviour
     public Vector3 lastPos;
     public float zoneOffset;
     private int timesMoved = 0;
+    
+    
 
-
-    //UI
-    public GameObject healthUI;
 
     // Start is called before the first frame update
     void Start()
@@ -73,9 +72,6 @@ public class zoneControl : MonoBehaviour
                 return;
             }
 
-            //ZOnen bevæger sig:
-            healthUI.GetComponent<Animator>().SetBool("zoneIsMoving", true);
-
             if (transform.localScale.y + zoneOffset <= markerObject.transform.position.y)
             {
                 transform.localScale += new Vector3(0, (zoneMoveSpeed) * Time.deltaTime);
@@ -83,7 +79,6 @@ public class zoneControl : MonoBehaviour
             }
             else
             {
-                healthUI.GetComponent<Animator>().SetBool("zoneIsMoving", false);
                 timeLeftBeforeMarkerMove -= Time.deltaTime;
                 if ((timeLeftBeforeMarkerMove <= 0) == false)
                 {
