@@ -8,7 +8,7 @@ public class BallLook : MonoBehaviourPunCallbacks
 {
 
     public enum BallColor {White, Red, Green, Blue}
-    public enum BallTrail {Fire, Water, Cool, Lolol, haha}
+    public enum BallTrail {Fire, Water, Cool, Lolol, haha, magenta}
     public int emojiNumber;
 
     //[0]= normalMaterial, [1]= lololMaterial, [2]= hahaMaterial
@@ -78,7 +78,9 @@ public class BallLook : MonoBehaviourPunCallbacks
             case BallTrail.Cool:
                 TrailSettings(Color.green,Color.yellow,curMaterial[0],0.25f,0.0f);
                 break;
-
+            case BallTrail.magenta:
+                TrailSettings(Color.magenta, Color.white, curMaterial[0], 0.25f, 0.0f);
+                break;
         }
     }
 

@@ -81,7 +81,9 @@ public class SkinChange : MonoBehaviourPunCallbacks
             case 5:
                 TrailSettings(Color.green,Color.yellow,BallLook.BallTrail.Cool, normalMaterial, 0.5f, 0.0f);
                 break;
-
+            case 6:
+                TrailSettings(Color.magenta, Color.white, BallLook.BallTrail.magenta, normalMaterial, 0.5f, 0.0f);
+                break;
         }
         animator.SetInteger("TrailChange", 0);
 
