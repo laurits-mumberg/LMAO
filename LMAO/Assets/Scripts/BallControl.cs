@@ -259,6 +259,7 @@ public class BallControl : MonoBehaviourPun {
             if (collision.tag == "zone")
             {
                 SoundHandler.soundHandler.StopSoundFX(audioSource);
+                SoundHandler.soundHandler.PlaySoundFX(audioSource, soundDB.soundFX[3]);
                 timeSinceDmgTaken = 0;
             }
         }
