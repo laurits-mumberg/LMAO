@@ -43,6 +43,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_7C205D11_Out:
+        m_Texture: {fileID: 2800000, guid: 958e04f92d5714e4997e161360c88b5d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
@@ -62,7 +66,10 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _noise: 20
     m_Colors:
+    - Color_7B2C1173: {r: 0.4622642, g: 0.1835461, b: 0, a: 0}
+    - Color_8324F9CB: {r: 0.5283019, g: 0.2103424, b: 0, a: 0}
     - _Color: {r: 0.4056604, g: 0.19050476, b: 0.02104842, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
