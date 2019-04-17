@@ -78,8 +78,8 @@ public class zoneControl : MonoBehaviour
 
             if (transform.localScale.y + zoneOffset <= markerObject.transform.position.y)
             {
-                transform.localScale += new Vector3(0, (zoneMoveSpeed + timesMoved * lengthIncrease) * Time.deltaTime);
-                transform.position += new Vector3(0, (zoneMoveSpeed + timesMoved * lengthIncrease) * Time.deltaTime * 0.5f);
+                transform.localScale += new Vector3(0, (zoneMoveSpeed) * Time.deltaTime);
+                transform.position += new Vector3(0, (zoneMoveSpeed) * Time.deltaTime * 0.5f);
             }
             else
             {

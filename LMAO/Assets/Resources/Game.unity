@@ -1346,7 +1346,7 @@ MonoBehaviour:
   timeBetweenMarkerMoves: 5
   standardMoveLength: 40
   lengthIncrease: 10
-  zoneMoveSpeed: 5
+  zoneMoveSpeed: 10
   markerMoveSpeed: 10
   timeLeftBeforeZoneMove: 0
   zoneReachedPos: 0
