@@ -434,6 +434,11 @@ PrefabInstance:
       propertyPath: posChangeX
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1338835818321678953, guid: 1dae88ea817c2eb418ff59b1a853d5ba,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c6873419de61ca41ac84b6a7613c671, type: 2}
     - target: {fileID: 5123177551210270364, guid: 1dae88ea817c2eb418ff59b1a853d5ba,
         type: 3}
       propertyPath: viewIdField
@@ -956,6 +961,11 @@ PrefabInstance:
       propertyPath: posChangeX
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1338835818321678953, guid: 1dae88ea817c2eb418ff59b1a853d5ba,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c6873419de61ca41ac84b6a7613c671, type: 2}
     - target: {fileID: 5123177551210270364, guid: 1dae88ea817c2eb418ff59b1a853d5ba,
         type: 3}
       propertyPath: viewIdField
